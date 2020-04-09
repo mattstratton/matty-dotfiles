@@ -6,7 +6,7 @@
 ```bash
 curl -fLo ~/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x ~/yadm
 ```
-- `yadm clone --bootstrap https://github.com/mattstratton/dotfiles.git`
+- `yadm clone --bootstrap https://github.com/mattstratton/matty-dotfiles.git`
 
 ## Description
 
