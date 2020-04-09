@@ -45,8 +45,3 @@ yadm remote set-url origin "git@github.com:mattstratton/matty-dotfiles.git"
 # install omz
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-
-
-
-
