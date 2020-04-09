@@ -17,7 +17,7 @@ brew "awscli"
 brew "diff-so-fancy"
 brew "direnv"
 brew "git-extras"
-brew "gnupg", link: false
+brew "gnupg"
 brew "go"
 brew "graphicsmagick"
 brew "hub"
