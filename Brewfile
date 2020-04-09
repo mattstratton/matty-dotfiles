@@ -64,6 +64,7 @@ cask "skype"
 cask "slack"
 cask "spotify"
 cask "tower"
+cask "viscosity"
 cask "visual-studio-code"
 cask "zoomus"
 
