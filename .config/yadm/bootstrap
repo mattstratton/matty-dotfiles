@@ -29,6 +29,11 @@ if [ "$system_type" = "Darwin" ]; then
 
 fi
 
+# install omz plugins
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 # Setup git
 git config --global credential.helper 'osxkeychain'
 git config --global user.name 'Matt Stratton'
@@ -36,4 +41,12 @@ git config --global user.email 'matt.stratton@gmail.com'
 
 echo "Updating the yadm repo origin URL"
 yadm remote set-url origin "git@github.com:mattstratton/matty-dotfiles.git"
+
+# install omz
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+
+
 
