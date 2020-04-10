@@ -119,7 +119,7 @@ alias -s rb=ruby
 alias -s log="less -MN"
 alias imgls="~/.iterm2/imgls"
 alias imgcat="~/.iterm2/imgcat"
-alias brew='PATH="/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin" brew'
+#alias brew='PATH="/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin" brew'
 # eval "$(hub alias -s)"
 
 export GOPATH=~/go/
