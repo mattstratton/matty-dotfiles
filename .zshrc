@@ -111,7 +111,7 @@ export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 # Example aliases
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshconfig="vim ~/.zshrc"
-alias ping='ping -c 5'
+#alias ping='ping -c 5'
 alias c='clear'
 alias sz='source ~/.zshrc'
 alias prep='changelog prepare'
@@ -139,5 +139,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
 export GPG_TTY=$(tty)
 # unalias pip
-unalias ping
 # eval "$(direnv hook zsh)"
