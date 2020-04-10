@@ -55,7 +55,7 @@ plugins=(autojump brew bundler colored-man-pages colorize gem git git-extras git
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/local/sbin::~/bin:/usr/local/packer:/Library/Frameworks/Python.framework/Versions/3.4/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/local/sbin:/sbin:~/bin:/usr/local/packer:/Library/Frameworks/Python.framework/Versions/3.4/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -107,7 +107,7 @@ export AWS_SECRET_ACCESS_KEY=$(keychain-environment-variable AWS_SECRET_ACCESS_K
 export GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export CHANGELOG_GITHUB_TOKEN=$(keychain-environment-variable CHANGELOG_GITHUB_TOKEN);
 export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable BOWIE_GITHUB_TOKEN);
-
+export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 # Example aliases
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshconfig="vim ~/.zshrc"
@@ -139,4 +139,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
 export GPG_TTY=$(tty)
 # unalias pip
+unalias ping
 # eval "$(direnv hook zsh)"
