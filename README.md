@@ -24,4 +24,5 @@ sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 ```
 
-- Install the VSCode extension `Settings Sync` to sync VSCode
+- Install the VSCode extension [Syncing](https://marketplace.visualstudio.com/items?itemName=nonoroazoro.syncing) to sync VSCode
+- Delete `/usr/local/bin/yadm` and run `brew bundle` again to get `yadm` set up in homebrew properly
