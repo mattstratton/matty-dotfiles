@@ -82,6 +82,7 @@ cask "spotify"
 cask "tower"
 cask "viscosity"
 cask "visual-studio-code"
+cask "witch"
 cask "zoomus"
 
 # Font casks
