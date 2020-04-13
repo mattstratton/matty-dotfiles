@@ -1,5 +1,10 @@
 [user]
 	name = Matt Stratton
 	email = matt.stratton@gmail.com
+	signingkey = 0018455C83D65ED7108B7C845D0D9E604FE86862
 [credential]
 	helper = osxkeychain
+[gpg]
+	program = /usr/local/bin/gpg
+[commit]
+	gpgsign = true
