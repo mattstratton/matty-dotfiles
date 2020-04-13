@@ -61,6 +61,7 @@ cask "elgato-game-capture-hd""
 cask "obs" # OBS must be installed before Stream Deck
 cask "elgato-stream-deck"
 cask "google-chrome"
+cask "handbrake"
 cask "iterm2"
 cask "krisp"
 cask "logitech-presentation"
