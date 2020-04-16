@@ -94,6 +94,7 @@ cask "font-menlo-for-powerline"
 
 # Mac App Store apps
 mas "Bear", id: 1091189122
+mas "DaisyDisk", id: 411643860
 mas "Deliveries", id: 924726344
 mas "Drawful 2", id: 1121426744
 mas "Fibbage XL", id: 1091682296
