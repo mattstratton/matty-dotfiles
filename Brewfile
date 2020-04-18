@@ -61,7 +61,7 @@ cask "cakebrew"
 cask "docker"
 cask "dropbox"
 cask "elgato-control-center"
-cask "elgato-game-capture-hd"
+# cask "elgato-game-capture-hd"
 # OBS must be installed before Stream Deck
 cask "obs"
 cask "elgato-stream-deck"
