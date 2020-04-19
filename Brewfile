@@ -10,8 +10,10 @@ tap "github/gh"
 tap "heroku/brew"
 tap "teamookla/speedtest"
 tap "sambadevi/powerlevel9k"
+tap "rvalente/homebrew-alerter"
 
 # Brew CLI apps
+brew "alerter"
 brew "asciinema"
 brew "autojump"
 brew "awscli"
@@ -50,6 +52,7 @@ brew "sambadevi/powerlevel9k/powerlevel9k"
 # App casks
 cask "1password"
 cask "adobe-creative-cloud"
+cask "aerial"
 cask "airfoil"
 cask "audio-hijack"
 cask "authy"
