@@ -8,3 +8,5 @@
 	program = /usr/local/bin/gpg
 [commit]
 	gpgsign = true
+[core]
+	excludesfile = /Users/mattstratton/.gitignore_global
