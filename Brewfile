@@ -119,5 +119,6 @@ mas "The Jackbox Party Pack 5", id: 1438912153
 mas "The Jackbox Party Pack 6", id: 1475799761
 mas "Todoist: To-Do List & Tasks", id: 585829637
 mas "ToothFairy", id: 1191449274
+mas "Webcam Settings", id: 533696630
 mas "WhatsApp", id: 1147396723
 mas "Xcode", id: 497799835
