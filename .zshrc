@@ -142,3 +142,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export GPG_TTY=$(tty)
 # unalias pip
 # eval "$(direnv hook zsh)"
+# eval "$(starship init zsh)"
