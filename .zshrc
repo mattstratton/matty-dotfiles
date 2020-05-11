@@ -121,6 +121,7 @@ alias imgls="~/.iterm2/imgls"
 alias imgcat="~/.iterm2/imgcat"
 alias ybrew="yadm add Brewfile"
 alias ypom="yadm push origin master"
+alias gpom="git push origin master"
 #alias brew='PATH="/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin" brew'
 # eval "$(hub alias -s)"
 
