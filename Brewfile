@@ -97,7 +97,6 @@ cask "soundsource"
 cask "spotify"
 cask "spotify-notifications"
 cask "steam"
-cask "superhuman"
 cask "tower"
 cask "viscosity"
 cask "visual-studio-code"
@@ -129,6 +128,7 @@ mas "The Jackbox Party Pack 3", id: 1156513849
 mas "The Jackbox Party Pack 4", id: 1281679696
 mas "The Jackbox Party Pack 5", id: 1438912153
 mas "The Jackbox Party Pack 6", id: 1475799761
+mas "The Jackbox Party Pack 7", id: 1529351927
 mas "Todoist: To-Do List & Tasks", id: 585829637
 mas "ToothFairy", id: 1191449274
 mas "Webcam Settings", id: 533696630
