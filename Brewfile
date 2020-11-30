@@ -103,7 +103,7 @@ cask "tower"
 cask "viscosity"
 cask "visual-studio-code"
 cask "witch"
-cask "zoomus"
+cask "zoom"
 
 # Font casks
 cask "font-hack-nerd-font"
