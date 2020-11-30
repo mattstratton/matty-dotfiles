@@ -10,3 +10,5 @@
 	gpgsign = true
 [core]
 	excludesfile = /Users/mattstratton/.gitignore_global
+[pull]
+	rebase = false
