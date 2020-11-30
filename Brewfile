@@ -10,7 +10,6 @@ tap "github/gh"
 tap "heroku/brew"
 tap "teamookla/speedtest"
 tap "sambadevi/powerlevel9k"
-tap "rvalente/homebrew-alerter"
 
 # Brew CLI apps
 brew "alerter"
