@@ -1,7 +1,7 @@
 [user]
-	name = Matt Stratton
-	email = matt.stratton@hey.com
-	signingkey = D80E563C9F1890A28A866FE7941EA0C97D7F0906
+	name = Jeremy Meiss
+	email = jeremy.meiss@gmail.com
+	signingkey = AC51D19EFC46D62D
 [credential]
 	helper = osxkeychain
 [gpg]
@@ -9,6 +9,6 @@
 [commit]
 	gpgsign = true
 [core]
-	excludesfile = /Users/mattstratton/.gitignore_global
+	excludesfile = /Users/jeremymeiss/.gitignore_global
 [pull]
 	rebase = false

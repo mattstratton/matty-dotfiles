@@ -1,12 +1,12 @@
-# dotfiles 
-
+# dotfiles  
+(inspired by @mattstratton)
 ## Installation
 
 - Install [YADM](https://yadm.io)
 ```bash
 curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x /usr/local/bin/yadm
 ```
-- `yadm clone --bootstrap https://github.com/mattstratton/matty-dotfiles.git`
+- `yadm clone --bootstrap https://github.com/jerdog/jerdog-dotfiles.git`
 
 ## Description
 
