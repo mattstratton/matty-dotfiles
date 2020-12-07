@@ -1,6 +1,15 @@
 ZSH_DISABLE_COMPFIX="true"
 # FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
+# Configuring Completions in zsh
+# See: https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/jeremymeiss/.oh-my-zsh
 
@@ -134,6 +143,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/Users/jeremymeiss/bin
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
