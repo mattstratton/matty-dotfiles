@@ -94,7 +94,7 @@ export EDITOR='nano'
 
 # secrets!
 
-source ~/keychain-environment-variables.sh
+#source ~/keychain-environment-variables.sh
 
 # AWS configuration example, after doing:
 # $  set-keychain-environment-variable AWS_ACCESS_KEY_ID
