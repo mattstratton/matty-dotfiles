@@ -102,12 +102,13 @@ source ~/keychain-environment-variables.sh
 # $  set-keychain-environment-variable AWS_SECRET_ACCESS_KEY
 #       provide: "j1/yoursupersecret/password"
 
-export AWS_ACCESS_KEY_ID=$(keychain-environment-variable AWS_ACCESS_KEY_ID);
-export AWS_SECRET_ACCESS_KEY=$(keychain-environment-variable AWS_SECRET_ACCESS_KEY);
-export GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
-export CHANGELOG_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
-export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
-export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
+#export AWS_ACCESS_KEY_ID=$(keychain-environment-variable AWS_ACCESS_KEY_ID);
+#export AWS_SECRET_ACCESS_KEY=$(keychain-environment-variable AWS_SECRET_ACCESS_KEY);
+#export GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
+#export CHANGELOG_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
+#export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
+#export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
+
 # Example aliases
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshconfig="vim ~/.zshrc"
