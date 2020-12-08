@@ -24,8 +24,8 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 echo "  › Set graphite appearance"
 defaults write NSGlobalDomain AppleAquaColorVariant -int 6
 
-echo "  › Set graphite highlight color"
-defaults write NSGlobalDomain AppleHighlightColor -string "0.847059 0.847059 0.862745"
+#echo "  › Set graphite highlight color"
+#defaults write NSGlobalDomain AppleHighlightColor -string "0.847059 0.847059 0.862745"
 
 echo "  › Disable machine sleep while charging"
 sudo pmset -c sleep 0
@@ -48,8 +48,8 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 echo "  › Show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
 
-echo "  › Disable the warning before emptying the Trash"
-defaults write com.apple.finder WarnOnEmptyTrash -bool false
+#echo "  › Disable the warning before emptying the Trash"
+#defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 echo "  › Show status bar"
 defaults write com.apple.finder ShowStatusBar -bool true
