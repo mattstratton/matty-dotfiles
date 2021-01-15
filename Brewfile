@@ -72,6 +72,7 @@ cask "fantastical"
 # cask "elgato-game-capture-hd"
 # OBS must be installed before Stream Deck
 cask "obs"
+cask "osxfuse"
 cask "elgato-stream-deck"
 cask "farrago"
 cask "fission"
