@@ -33,7 +33,7 @@ fi
 # Setup git
 git config --global credential.helper 'osxkeychain'
 git config --global user.name 'Matt Stratton'
-git config --global user.email 'matt.stratton@gmail.com'
+git config --global user.email 'matt.stratton@hey.com'
 git config --global core.excludesfile ~/.gitignore_global
 
 echo "Updating the yadm repo origin URL"
