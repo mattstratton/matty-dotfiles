@@ -61,7 +61,6 @@ cask "alfred"
 cask "bartender"
 cask "blue-jeans"
 cask "beyond-compare"
-cask "cakebrew"
 cask "camtasia"
 cask "dash"
 cask "discord"
@@ -78,7 +77,6 @@ cask "fission"
 cask "grammerly"
 cask "google-chrome"
 cask "handbrake"
-cask "igdm"
 cask "iterm2"
 cask "loopback"
 cask "keybase"
@@ -121,6 +119,7 @@ mas "iMovie", id: 408981434
 mas "Just Press Record", id: 979561272
 mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
+mas "Microsoft Remote Desktop", id: 1295203466
 mas "MindNode", id: 1289197285
 mas "Quiplash", id: 1002623276
 mas "Shush - Microphone Manager", id: 496437906
