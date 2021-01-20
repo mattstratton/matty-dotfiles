@@ -33,7 +33,6 @@ brew "netlify-cli", link: false
 brew "packer"
 brew "ponysay"
 brew "speedtest"
-brew "starship"
 brew "thefuck"
 brew "tldr"
 brew "tree"
