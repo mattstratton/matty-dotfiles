@@ -112,6 +112,7 @@ mas "DaisyDisk", id: 411643860
 mas "Deliveries: a package tracker", id: 290986013
 mas "Drawful 2", id: 1121426744
 mas "Fibbage XL", id: 1091682296
+mas "HP Smart for Desktop", id: 1474276998
 mas "iMovie", id: 408981434
 mas "Just Press Record", id: 979561272
 mas "Keynote", id: 409183694
