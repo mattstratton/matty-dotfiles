@@ -57,7 +57,7 @@ DEFAULT_USER="jeremymeiss"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump brew bundler colored-man-pages colorize docker docker-compose dotenv emoji gatsby gem git git-extras github git golang heroku history history-substring-search iterm2 jsontools node npm npx nvm oc osx pip python repo ruby ssh-agent vagrant vscode zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(autojump brew bundler colored-man-pages colorize docker docker-compose dotenv emoji gatsby gem git git-extras github git golang heroku history history-substring-search iterm2 jsontools node npm npx nvm oc osx pip python repo ruby ssh-agent vagrant vscode zsh-completions zsh-syntax-highlighting zsh-autosuggestions)
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
