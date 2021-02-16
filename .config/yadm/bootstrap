@@ -32,12 +32,12 @@ fi
 
 # Setup git
 git config --global credential.helper 'osxkeychain'
-git config --global user.name 'Matt Stratton'
-git config --global user.email 'matt.stratton@gmail.com'
+git config --global user.name 'Jeremy Meiss'
+git config --global user.email 'jeremy.meiss@gmail.com'
 git config --global core.excludesfile ~/.gitignore_global
 
 echo "Updating the yadm repo origin URL"
-yadm remote set-url origin "git@github.com:mattstratton/matty-dotfiles.git"
+yadm remote set-url origin "git@github.com:jerdog/jerdog-dotfiles.git"
 
 # install omz
 
