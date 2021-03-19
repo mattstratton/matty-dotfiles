@@ -1,7 +1,7 @@
 [user]
 	name = Matt Stratton
 	email = matt.stratton@hey.com
-	signingkey = D80E563C9F1890A28A866FE7941EA0C97D7F0906
+	signingkey = DCDDEAD4AA11624D7F2F23351D641533AE9E4F53
 [credential]
 	helper = osxkeychain
 [gpg]
