@@ -8,7 +8,7 @@ tap "homebrew/services"
 tap "devopsdays/tap"
 tap "heroku/brew"
 tap "teamookla/speedtest"
-tap "sambadevi/powerlevel9k"
+tap "romkatv/powerlevel10k"
 
 # Brew CLI apps
 brew "alerter"
@@ -45,7 +45,7 @@ brew "zsh-syntax-highlighting"
 brew "zsh-autosuggestions"
 brew "devopsdays/tap/devopsdays-cli"
 brew "heroku/brew/heroku"
-brew "sambadevi/powerlevel9k/powerlevel9k"
+brew "romkatv/powerlevel10k/powerlevel10k"
 
 # App casks
 cask "1password"
