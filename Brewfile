@@ -93,7 +93,6 @@ cask "spotify-notifications"
 cask "sunsama"
 cask "steam"
 cask "tower"
-cask "viscosity"
 cask "visual-studio-code"
 cask "zoom"
 
