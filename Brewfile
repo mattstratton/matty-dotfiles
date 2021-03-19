@@ -27,7 +27,6 @@ brew "hugo"
 brew "imagemagick"
 brew "jq"
 brew "mas"
-brew "powerlevel9k"
 brew "node"
 brew "netlify-cli", link: false
 brew "packer"
