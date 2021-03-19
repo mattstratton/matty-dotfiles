@@ -28,7 +28,6 @@ brew "jq"
 brew "mas"
 brew "node"
 brew "netlify-cli", link: false
-brew "packer"
 brew "ponysay"
 brew "speedtest"
 brew "thefuck"
