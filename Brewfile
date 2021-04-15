@@ -28,6 +28,7 @@ brew "imagemagick"
 brew "jq"
 brew "mas"
 brew "pulumi"
+brew "neovim"
 brew "node"
 brew "netlify-cli", link: false
 brew "packer"
