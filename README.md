@@ -9,7 +9,7 @@
 
 - Install [YADM](https://yadm.io)
 ```bash
-curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x /usr/local/bin/yadm
+sudo mkdir /usr/local/bin && sudo curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && sudo chmod a+x /usr/local/bin/yadm
 ```
 - `yadm clone --bootstrap https://github.com/jerdog/jerdog-dotfiles.git`
 
