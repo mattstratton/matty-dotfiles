@@ -4,11 +4,17 @@
 	signingkey = AC51D19EFC46D62D
 [credential]
 	helper = osxkeychain
-[gpg]
-	program = /usr/local/bin/gpg
 [commit]
 	gpgsign = true
 [core]
 	excludesfile = /Users/jeremymeiss/.gitignore_global
+	editor = nano
 [pull]
 	rebase = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[gpg]
+	program = /usr/local/bin/gpg
