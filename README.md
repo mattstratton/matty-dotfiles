@@ -2,6 +2,7 @@
 (inspired by @mattstratton)
 ## Prerequisites
 - Make sure you have signed into the Apple Store so that [mas](https://github.com/mas-cli/mas) will work
+- XCode Command Line Utils need to be installed (`xcode-select —install`)
 
 
 ## Installation
