@@ -1,5 +1,9 @@
 # dotfiles  
 (inspired by @mattstratton)
+## Prerequisites
+- Make sure you have signed into the Apple Store so that [mas](https://github.com/mas-cli/mas) will work
+
+
 ## Installation
 
 - Install [YADM](https://yadm.io)
@@ -12,8 +16,8 @@ curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master
 
 Here's what the `bootstrap` file for `yadm` is doing:
 
-- Install zsh with [oh-my-zsh](https://ohmyz.sh/) as a plugin manager
-- Install all the packages/apps from `Brewfile` using [Homebrew](https://brew.sh)
+- Install `zsh` with [oh-my-zsh](https://ohmyz.sh/) as a plugin manager
+- Install [Homebrew](https://brew.sh) and then all of the packages/apps from `Brewfile`
 
 ## Manual things to do after
 
