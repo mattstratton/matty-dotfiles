@@ -49,6 +49,10 @@ brew "openexr"
 brew "imagemagick"
 #brew "irssi"
 brew "jpeg-turbo"
+brew "jpeg"
+brew "keybase"
+brew "libpng"
+brew "libtiff"
 brew "mas"
 brew "neovim"
 #brew "ntfs-3g"
@@ -158,4 +162,5 @@ mas "Tweetbot", id: 1384080005
 mas "TweetDeck", id: 485812721
 mas "Ulysses", id: 1225570693
 mas "Webcam Settings", id: 533696630
+mas "WhatsApp", id: 1147396723
 mas "Xcode", id: 497799835
