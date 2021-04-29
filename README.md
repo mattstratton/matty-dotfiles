@@ -10,10 +10,10 @@ curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master
 
 ## Description
 
-Here's what is the bootstrap is doing:
+Here's what the `bootstrap` file for `yadm` is doing:
 
 - Install zsh with [oh-my-zsh](https://ohmyz.sh/) as a plugin manager
-- Install all the packages/apps from `.Brewfile` using [Homebrew](https://brew.sh)
+- Install all the packages/apps from `Brewfile` using [Homebrew](https://brew.sh)
 
 ## Manual things to do after
 
