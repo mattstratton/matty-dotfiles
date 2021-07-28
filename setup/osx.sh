@@ -69,7 +69,7 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 echo ""
 echo "› Kill related apps"
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-	"Dock" "Finder" "Mail" "Messages" "Safari" "SystemUIServer" \
+	"Dock" "Finder" "Mail" "Messages" "SystemUIServer" \
 	"Terminal" ; do
 	killall "$app" >/dev/null 2>&1
 done
