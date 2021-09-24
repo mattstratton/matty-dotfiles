@@ -17,4 +17,5 @@
 	process = git-lfs filter-process
 	required = true
 [gpg]
-	program = /usr/local/bin/gpg
+#	program = gpg
+	program = /usr/local/MacGPG2/bin/gpg

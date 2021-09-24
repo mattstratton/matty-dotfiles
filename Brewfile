@@ -23,7 +23,6 @@ brew "cmake"
 brew "coreutils"
 brew "diff-so-fancy"
 brew "eigen"
-#brew "ext4fuse"
 brew "fd"
 brew "ffind"
 brew "guile"
@@ -38,23 +37,18 @@ brew "gcc"
 brew "gh"
 brew "git"
 brew "git-extras"
-brew "gnupg"
+brew "gnupg", link: false
 brew "go"
 brew "graphicsmagick"
 brew "handbrake", link: false
 brew "hdf5"
 brew "hub"
 brew "hugo"
-brew "openexr"
+brew "openexr", link: false
 brew "imagemagick"
-#brew "irssi"
 brew "jpeg-turbo"
-brew "jpeg"
-brew "libpng"
-brew "libtiff"
 brew "mas"
 brew "neovim"
-#brew "ntfs-3g"
 brew "optipng"
 brew "pinentry-mac"
 brew "pyenv"
@@ -70,7 +64,7 @@ brew "trash"
 brew "tree"
 brew "wget", link: false
 brew "wifi-password"
-brew "yadm"
+brew "yadm", link: false
 brew "yarn"
 brew "youtube-dl"
 brew "zsh-autosuggestions"
@@ -114,9 +108,6 @@ cask "loopback"
 cask "macdown"
 cask "moom"
 cask "obs"
-#cask "openra"
-#cask "openttd"
-#cask "osxfuse"
 cask "postman"
 cask "private-internet-access"
 cask "raindropio"
@@ -129,14 +120,15 @@ cask "spotmenu"
 cask "steam"
 cask "viscosity"
 cask "visual-studio-code"
+cask "vlc"
+cask "xld"
 cask "yt-music"
 cask "zoom"
 
 #apple store
 mas "Amphetamine", id: 937984704
-#mas "Bear", id: 1091189122
+mas "Bear", id: 1091189122
 mas "Clocker", id: 1056643111
-mas "com.pixelmatorteam.pixelmator.x", id: 1289583905
 mas "DaVinci Resolve", id: 571213070
 mas "Drawful 2", id: 1121426744
 mas "Gapplin", id: 768053424
@@ -151,7 +143,10 @@ mas "MindNode", id: 1289197285
 mas "NordVPN IKE", id: 1116599239
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Pixelmator Pro", id: 1289583905
+mas "Remote Desktop", id: 409907375
 mas "Skitch", id: 425955336
+mas "Spark", id: 1176895641
 mas "The Jackbox Party Pack 3", id: 1156513849
 mas "The Jackbox Party Pack 7", id: 1529351927
 mas "The Unarchiver", id: 425424353
@@ -161,5 +156,5 @@ mas "Tweetbot", id: 1384080005
 mas "TweetDeck", id: 485812721
 mas "Ulysses", id: 1225570693
 mas "Webcam Settings", id: 533696630
-mas "WhatsApp", id: 1147396723
+#mas "XChat Azure", id: 447521961
 mas "Xcode", id: 497799835
