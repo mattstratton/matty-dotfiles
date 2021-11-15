@@ -54,7 +54,7 @@ DEFAULT_USER="mattstratton"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-nvm autojump brew bundler colored-man-pages colorize gem git git-extras github git golang history history-substring-search oc osx pip python ruby vagrant vscode zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(zsh-nvm autojump brew bundler colored-man-pages colorize gem git git-extras github git golang history history-substring-search oc macos pip python ruby vagrant vscode zsh-syntax-highlighting zsh-autosuggestions)
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -115,8 +115,8 @@ export CHANGELOG_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 # stuff to get grpcio to install on python
-export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
-export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
+#export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
+#export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
 export DIGITALOCEAN_TOKEN=$(keychain-environment-variable DIGITALOCEAN_TOKEN);
 # Example aliases
 alias ohmyzsh="vim ~/.oh-my-zsh"
