@@ -15,6 +15,9 @@ chflags nohidden ~/Library
 echo "  › Don't automatically rearrange Spaces based on most recent use"
 defaults write com.apple.dock mru-spaces -bool false
 
+echo "  › Reinstall pref Dock prefs"
+defaults import com.apple.dock.plist ~/dev/personal/jerdog-dotfiles/setup/com.apple.dock.plist
+
 echo "  › Avoid the creation of .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
