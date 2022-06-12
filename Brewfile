@@ -11,13 +11,17 @@ tap "homebrew/services"
 tap "teamookla/speedtest"
 
 #brews
+brew "jpeg"
+brew "libpng"
+brew "libtiff"
+brew "openexr", link: false
 brew "readline"
 brew "asciinema"
 brew "autojump"
 brew "awscli"
-brew "libpng"
 brew "glib"
 brew "pkg-config"
+brew "tailscale"
 brew "circleci"
 brew "cmake"
 brew "coreutils"
@@ -26,10 +30,9 @@ brew "eigen"
 brew "fd"
 brew "ffind"
 brew "guile"
-brew "jpeg"
-brew "libtiff"
 brew "ffmpeg"
 brew "findutils"
+brew "fx"
 brew "node"
 brew "gatsby-cli"
 brew "mpfr"
@@ -37,14 +40,13 @@ brew "gcc"
 brew "gh"
 brew "git"
 brew "git-extras"
-brew "gnupg", link: false
+brew "gnupg"
 brew "go"
 brew "graphicsmagick"
 brew "handbrake", link: false
 brew "hdf5"
 brew "hub"
 brew "hugo"
-brew "openexr", link: false
 brew "imagemagick"
 brew "jpeg-turbo"
 brew "mas"
@@ -70,17 +72,17 @@ brew "youtube-dl"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "heroku/brew/heroku"
-brew "teamookla/speedtest/speedtest"
+brew "teamookla/speedtest/speedtest", link: false
 
 #casks
 cask "1password"
-cask "adobe-creative-cloud"
 cask "aerial"
 cask "airfoil"
 cask "airtable"
 cask "alfred"
 cask "audio-hijack"
 cask "authy"
+cask "bartender"
 cask "beyond-compare"
 cask "bluestacks"
 cask "brave-browser-beta"
@@ -92,32 +94,36 @@ cask "elgato-stream-deck"
 cask "ferdi"
 cask "font-hack-nerd-font"
 cask "font-menlo-for-powerline"
-cask "google-chrome"
 cask "gpg-suite"
+cask "google-chrome"
 cask "handbrake"
 cask "iterm2"
+cask "itsycal"
 cask "joplin"
 cask "kap"
 cask "keybase"
 cask "krisp"
 cask "lastfm"
 cask "licecap"
-cask "logitech-options"
 cask "logitech-presentation"
 cask "loopback"
 cask "macdown"
 cask "moom"
+cask "nordvpn"
 cask "obs"
 cask "postman"
-cask "private-internet-access"
 cask "raindropio"
+cask "remarkable"
+cask "sengi"
 cask "shadow"
 cask "signal"
 cask "skype"
+cask "slack"
 cask "soundsource"
 cask "spotify"
 cask "spotmenu"
 cask "steam"
+cask "telegram"
 cask "viscosity"
 cask "visual-studio-code"
 cask "vlc"
@@ -140,21 +146,16 @@ mas "Jayson", id: 1189824719
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "MindNode", id: 1289197285
-mas "NordVPN IKE", id: 1116599239
+mas "monday.com", id: 1298450641
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
 mas "Remote Desktop", id: 409907375
-mas "Skitch", id: 425955336
-mas "Spark", id: 1176895641
 mas "The Jackbox Party Pack 3", id: 1156513849
 mas "The Jackbox Party Pack 7", id: 1529351927
 mas "The Unarchiver", id: 425424353
-#mas "Todoist", id: 585829637
-#mas "Trello", id: 1278508951
 mas "Tweetbot", id: 1384080005
 mas "TweetDeck", id: 485812721
 mas "Ulysses", id: 1225570693
 mas "Webcam Settings", id: 533696630
-#mas "XChat Azure", id: 447521961
 mas "Xcode", id: 497799835
