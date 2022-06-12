@@ -17,7 +17,7 @@ export ZSH=/Users/jeremymeiss/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="muse"
+ZSH_THEME="robbyrussell"
 #ZSH_THEME="clean"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -57,18 +57,15 @@ DEFAULT_USER="jeremymeiss"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump brew bundler colored-man-pages colorize docker docker-compose dotenv emoji gatsby gem git git-extras github git golang heroku history history-substring-search iterm2 jsontools node npm npx nvm oc osx pip python repo ruby ssh-agent vagrant vscode zsh-completions zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(zsh-nvm autojump brew bundler colored-man-pages colorize docker dotenv emoji gatsby gem git git-extras github golang heroku history history-substring-search iterm2 jsontools node npm nvm oc macos pip python repo ruby ssh-agent vagrant vscode zsh-completions zsh-syntax-highlighting zsh-autosuggestions sudo web-search copypath copyfile copybuffer dirhistory history)
+
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
-
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/local/sbin:/sbin:~/bin:/usr/local/packer:/Library/Frameworks/Python.framework/Versions/3.4/bin"
-
 # export MANPATH="/usr/local/man:$MANPATH"
-
 export BUNDLE_PATH=$GEM_HOME
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -78,7 +75,6 @@ export BUNDLE_PATH=$GEM_HOME
 # else
 #   export EDITOR='mvim'
 # fi
-
 export EDITOR='nano'
 
 # Compilation flags
@@ -118,10 +114,15 @@ export EDITOR='nano'
 #export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 #export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 
+# Add Guile params
+export GUILE_LOAD_PATH="/opt/homebrew/share/guile/site/3.0"
+export GUILE_LOAD_COMPILED_PATH="/opt/homebrew/lib/guile/3.0/site-ccache"
+export GUILE_SYSTEM_EXTENSIONS_PATH="/opt/homebrew/lib/guile/3.0/extensions"
+
 # Example aliases
-alias ohmyzsh="vim ~/.oh-my-zsh"
-alias zshconfig="vim ~/.zshrc"
-#alias ping='ping -c 5'
+alias ohmyzsh="nano ~/.oh-my-zsh"
+alias zshconfig="nano ~/.zshrc"
+alias ping='ping -c 5'
 alias c='clear'
 alias sz='source ~/.zshrc'
 alias prep='changelog prepare'
@@ -147,9 +148,14 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval "$(thefuck --alias)"
+
+# Add thefuck
+eval $(thefuck --alias)
+
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
+
 export GPG_TTY=$(tty)
 # unalias pip
 # eval "$(direnv hook zsh)"
