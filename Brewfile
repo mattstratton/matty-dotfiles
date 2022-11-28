@@ -62,7 +62,6 @@ cask "authy"
 cask "alfred"
 cask "bartender"
 cask "beyond-compare"
-cask "camtasia"
 cask "cron"
 cask "dash"
 cask "discord"
@@ -83,7 +82,6 @@ cask "handbrake"
 cask "iterm2"
 cask "loopback"
 cask "keybase"
-cask "krisp"
 cask "logitech-presentation"
 cask "macdown"
 cask "microsoft-office"
@@ -91,15 +89,12 @@ cask "microsoft-teams"
 cask "moom"
 cask "notion"
 cask "postman"
-cask "raindropio"
 cask "remarkable"
-cask "shadow"
 cask "signal"
 cask "skype"
 cask "slack"
 cask "soundsource"
 cask "spotify"
-cask "sunsama"
 cask "steam"
 cask "tower"
 cask "visual-studio-code"
@@ -111,12 +106,7 @@ cask "font-inconsolata-for-powerline"
 cask "font-menlo-for-powerline"
 
 # Mac App Store apps
-mas "Bear", id: 1091189122
-mas "Cardhop", id: 1290358394
 mas "DaisyDisk", id: 411643860
-mas "Deliveries: a package tracker", id: 290986013
-mas "Drawful 2", id: 1121426744
-mas "Fibbage XL", id: 1091682296
 mas "HP Smart for Desktop", id: 1474276998
 mas "iMovie", id: 408981434
 mas "Just Press Record", id: 979561272
@@ -124,16 +114,6 @@ mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "MindNode", id: 1289197285
-mas "Quiplash", id: 1002623276
-mas "Shush - Microphone Manager", id: 496437906
-mas "The Jackbox Party Pack", id: 957862217
-mas "The Jackbox Party Pack 2", id: 1034034328
-mas "The Jackbox Party Pack 3", id: 1156513849
-mas "The Jackbox Party Pack 4", id: 1281679696
-mas "The Jackbox Party Pack 5", id: 1438912153
-mas "The Jackbox Party Pack 6", id: 1475799761
-mas "The Jackbox Party Pack 7", id: 1529351927
-mas "Todoist: To-Do List & Tasks", id: 585829637
 mas "ToothFairy", id: 1191449274
 mas "Webcam Settings", id: 533696630
 mas "WhatsApp", id: 1147396723
