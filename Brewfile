@@ -11,6 +11,7 @@ tap "teamookla/speedtest"
 tap "romkatv/powerlevel10k"
 
 # Brew CLI apps
+brew "1password-cli"
 brew "asciinema"
 brew "autojump"
 brew "awscli"
