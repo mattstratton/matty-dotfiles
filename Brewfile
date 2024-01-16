@@ -36,6 +36,7 @@ brew "netlify-cli", link: false
 brew "packer"
 brew "ponysay"
 brew "pulumi"
+brew "qrencode"
 brew "speedtest"
 brew "thefuck"
 brew "tldr"
