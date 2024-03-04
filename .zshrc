@@ -8,13 +8,14 @@ fi
 ZSH_DISABLE_COMPFIX="true"
 # FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/mattstratton/.oh-my-zsh
+export ZSH=/Users/matty.stratton/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+#source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 #ZSH_THEME="clean"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -54,7 +55,7 @@ DEFAULT_USER="mattstratton"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-nvm autojump brew bundler colored-man-pages colorize gem git git-extras github git golang history history-substring-search oc macos pip python ruby vagrant vscode zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(autojump brew bundler colored-man-pages colorize gem git git-extras github git golang history history-substring-search oc macos pip python ruby vagrant vscode zsh-syntax-highlighting zsh-autosuggestions)
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -117,7 +118,7 @@ export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 # stuff to get grpcio to install on python
 #export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
 #export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
-export DIGITALOCEAN_TOKEN=$(keychain-environment-variable DIGITALOCEAN_TOKEN);
+# export DIGITALOCEAN_TOKEN=$(keychain-environment-variable DIGITALOCEAN_TOKEN);
 # Example aliases
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshconfig="vim ~/.zshrc"
@@ -132,24 +133,26 @@ alias imgcat="~/.iterm2/imgcat"
 alias ybrew="yadm add Brewfile"
 alias ypom="yadm push origin master"
 alias gpom="git push origin master"
+alias python="/opt/homebrew/bin/python3"
 #alias brew='PATH="/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin" brew'
 # eval "$(hub alias -s)"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export GOPATH=~/go/
+export GOROOT="$(brew --prefix golang)/libexec"
 #export GOROOT=/usr/local/opt/go/libexec
-export GOROOT=/opt/homebrew/Cellar/go/1.16.2/libexec
+#export GOROOT=/opt/homebrew/Cellar/go/1.19/libexec
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOPATH/bin
-export DODPATH=/Users/mattstratton/src/github.com/devopsdays/devopsdays-web/
-export PATH=$PATH:/Users/mattstratton/bin
+export DODPATH=/Users/matty.stratton/src/github.com/devopsdays/devopsdays-web/
+export PATH=$PATH:/Users/matty.stratton/bin
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
-export PATH="/Users/mattstratton/.cargo/bin:$PATH"
+export PATH="/Users/matty.stratton/.cargo/bin:$PATH"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 # use local pulumi beta
-# export PATH="/Users/mattstratton/.pulumi/bin:$PATH"
+# export PATH="/Users/matty.stratton/.pulumi/bin:$PATH"
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(thefuck --alias)"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -160,5 +163,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # eval "$(starship init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
