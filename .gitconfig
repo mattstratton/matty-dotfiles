@@ -1,14 +1,19 @@
 [user]
-	name = Matt Stratton
-	email = matt.stratton@gmail.com
-	signingkey = C538A16C21624BAE33BC43D64DFB66BE67350C7F
-[credential]
-	helper = osxkeychain
-[gpg]
-	program = /opt/homebrew/bin/gpg
+	name = Matty Stratton
+	email = matty.stratton@aiven.io
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHqphcPZDXlSQUIWq0wxubAH0XDWpT6ZugomFQgN2RUC
 [commit]
 	gpgsign = true
+[gpg]
+    format = ssh
+
+[gpg "ssh"]
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[credentialg]
+	helper = osxkeychain
 [core]
-	excludesfile = /Users/mattstratton/.gitignore_global
+	excludesfile = /Users/matty.stratton/.gitignore_global
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main
