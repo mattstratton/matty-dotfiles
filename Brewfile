@@ -124,6 +124,8 @@ mas "Numbers", id: 409203825
 mas "Omnivore", id: 1564031042
 mas "Pages", id: 409201541
 mas "Webcam Settings", id: 533696630
+mas "Trello", id: 1278508951
+mas "Parcel", id: 639968404
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.project-manager"
 vscode "arcanis.vscode-zipfs"
