@@ -8,7 +8,7 @@ fi
 ZSH_DISABLE_COMPFIX="true"
 # FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/matty.stratton/.oh-my-zsh
+export ZSH=/Users/mattstratton/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -109,12 +109,14 @@ source ~/keychain-environment-variables.sh
 # $  set-keychain-environment-variable AWS_SECRET_ACCESS_KEY
 #       provide: "j1/yoursupersecret/password"
 
-export AWS_ACCESS_KEY_ID=$(keychain-environment-variable AWS_ACCESS_KEY_ID);
-export AWS_SECRET_ACCESS_KEY=$(keychain-environment-variable AWS_SECRET_ACCESS_KEY);
+# export AWS_ACCESS_KEY_ID=$(keychain-environment-variable AWS_ACCESS_KEY_ID);
+# export AWS_SECRET_ACCESS_KEY=$(keychain-environment-variable AWS_SECRET_ACCESS_KEY);
 export GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export CHANGELOG_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
+export GH_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
+
 # stuff to get grpcio to install on python
 #export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
 #export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
@@ -144,15 +146,15 @@ export GOROOT="$(brew --prefix golang)/libexec"
 #export GOROOT=/opt/homebrew/Cellar/go/1.19/libexec
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOPATH/bin
-export DODPATH=/Users/matty.stratton/src/github.com/devopsdays/devopsdays-web/
+export DODPATH=/Users/mattstratton/src/github.com/devopsdays/devopsdays-web/
 export PATH=$PATH:/Users/matty.stratton/bin
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
-export PATH="/Users/matty.stratton/.cargo/bin:$PATH"
+export PATH="/Users/mattstratton/.cargo/bin:$PATH"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 # use local pulumi beta
-# export PATH="/Users/matty.stratton/.pulumi/bin:$PATH"
+# export PATH="/Users/mattstratton/.pulumi/bin:$PATH"
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(thefuck --alias)"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
