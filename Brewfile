@@ -114,6 +114,7 @@ cask "skype"
 cask "soundsource"
 cask "todoist"
 cask "tower"
+cask "warp"
 cask "visual-studio-code"
 cask "zoom"
 mas "Fantastical", id: 975937182
