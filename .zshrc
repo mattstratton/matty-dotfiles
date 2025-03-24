@@ -117,6 +117,7 @@ export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export GH_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export FONT_AWESOME_TOKEN=$(keychain-environment-variable FONT_AWESOME_TOKEN);
+export REG_GH_TOKEN=$(keychain-environment-variable REG_GH_TOKEN);
 
 # stuff to get grpcio to install on python
 #export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
@@ -152,6 +153,9 @@ export PATH=$PATH:/Users/matty.stratton/bin
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 export PATH="/Users/mattstratton/.cargo/bin:$PATH"
+### Turbot build stuff
+export STEAMPIPE_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/steampipe-docs
+export TAILPIPE_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/tailpipe-docs
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 # use local pulumi beta
