@@ -116,11 +116,12 @@ export CHANGELOG_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export GH_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
+export FONT_AWESOME_TOKEN=$(keychain-environment-variable FONT_AWESOME_TOKEN);
 
 # stuff to get grpcio to install on python
 #export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
 #export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
-# export DIGITALOCEAN_TOKEN=$(keychain-environment-variable DIGITALOCEAN_TOKEN);
+export DIGITALOCEAN_TOKEN=$(keychain-environment-variable DIGITALOCEAN_TOKEN);
 # Example aliases
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshconfig="vim ~/.zshrc"
