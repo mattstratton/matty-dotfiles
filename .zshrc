@@ -118,15 +118,12 @@ export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export GH_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export FONT_AWESOME_TOKEN=$(keychain-environment-variable FONT_AWESOME_TOKEN);
 export REG_GH_TOKEN=$(keychain-environment-variable REG_GH_TOKEN);
-
-# stuff to get grpcio to install on python
-#export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
-#export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
+export AIVEN_TOKEN=$(keychain-environment-variable AIVEN_TOKEN);
+export GITHUB_PERSONAL_ACCESS_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export DIGITALOCEAN_TOKEN=$(keychain-environment-variable DIGITALOCEAN_TOKEN);
-# Example aliases
+
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshconfig="vim ~/.zshrc"
-#alias ping='ping -c 5'
 alias c='clear'
 alias sz='source ~/.zshrc'
 alias prep='changelog prepare'
@@ -138,14 +135,10 @@ alias ybrew="yadm add Brewfile"
 alias ypom="yadm push origin master"
 alias gpom="git push origin master"
 alias python="/opt/homebrew/bin/python3"
-#alias brew='PATH="/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin" brew'
-# eval "$(hub alias -s)"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export GOPATH=~/go/
 export GOROOT="$(brew --prefix golang)/libexec"
-#export GOROOT=/usr/local/opt/go/libexec
-#export GOROOT=/opt/homebrew/Cellar/go/1.19/libexec
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOPATH/bin
 export DODPATH=/Users/mattstratton/src/github.com/devopsdays/devopsdays-web/
@@ -156,18 +149,13 @@ export PATH="/Users/mattstratton/.cargo/bin:$PATH"
 ### Turbot build stuff
 export STEAMPIPE_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/steampipe-docs
 export TAILPIPE_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/tailpipe-docs
+export GUARDRAILS_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/guardrails-docs
+export PIPES_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/pipes-docs
+export POWERPIPE_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/powerpipe-docs
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-# use local pulumi beta
-# export PATH="/Users/mattstratton/.pulumi/bin:$PATH"
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(thefuck --alias)"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
-# export GPG_TTY=$(tty)
-# unalias pip
-# eval "$(direnv hook zsh)"
-# eval "$(starship init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -176,3 +164,8 @@ source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/mattstratton/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
