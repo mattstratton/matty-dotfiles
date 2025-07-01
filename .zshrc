@@ -1,8 +1,26 @@
+# Agent detection - only activate minimal mode for actual agents  
+if [[ -n "$npm_config_yes" ]] || [[ -n "$CI" ]] || [[ "$-" != *i* ]]; then
+  export AGENT_MODE=true
+else
+  export AGENT_MODE=false
+fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+
+# Enable Powerlevel10k instant prompt only when not in agent mode
+if [[ "$AGENT_MODE" != "true" ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Set Oh My Zsh theme conditionally - disable for agents only
+if [[ "$AGENT_MODE" == "true" ]]; then
+  ZSH_THEME=""  # Disable Powerlevel10k for agents
+else
+  ZSH_THEME="powerlevel10k/powerlevel10k"
 fi
 
 ZSH_DISABLE_COMPFIX="true"
@@ -160,10 +178,31 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
+# source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Later in your .zshrc - minimal prompt for agents
+if [[ "$AGENT_MODE" == "true" ]]; then
+  PROMPT='%n@%m:%~%# '
+  RPROMPT=''
+  unsetopt CORRECT
+  unsetopt CORRECT_ALL
+  setopt NO_BEEP
+  setopt NO_HIST_BEEP  
+  setopt NO_LIST_BEEP
+  
+  # Agent-friendly aliases to avoid interactive prompts
+  alias rm='rm -f'
+  alias cp='cp -f' 
+  alias mv='mv -f'
+  alias npm='npm --no-fund --no-audit'
+  alias yarn='yarn --non-interactive'
+  alias pip='pip --quiet'
+  alias git='git -c advice.detachedHead=false'
+else
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/mattstratton/.docker/completions $fpath)
 autoload -Uz compinit
