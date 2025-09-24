@@ -134,11 +134,11 @@ export CHANGELOG_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 #export GH_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
-export FONT_AWESOME_TOKEN=$(keychain-environment-variable FONT_AWESOME_TOKEN);
-export REG_GH_TOKEN=$(keychain-environment-variable REG_GH_TOKEN);
-export AIVEN_TOKEN=$(keychain-environment-variable AIVEN_TOKEN);
+#export FONT_AWESOME_TOKEN=$(keychain-environment-variable FONT_AWESOME_TOKEN);
+#export REG_GH_TOKEN=$(keychain-environment-variable REG_GH_TOKEN);
+#export AIVEN_TOKEN=$(keychain-environment-variable AIVEN_TOKEN);
 export GITHUB_PERSONAL_ACCESS_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
-export DIGITALOCEAN_TOKEN=$(keychain-environment-variable DIGITALOCEAN_TOKEN);
+#export DIGITALOCEAN_TOKEN=$(keychain-environment-variable DIGITALOCEAN_TOKEN);
 
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshconfig="vim ~/.zshrc"
