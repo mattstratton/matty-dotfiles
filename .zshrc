@@ -220,3 +220,6 @@ fpath=(/Users/mattstratton/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+# for benchmarks
+alias date=gdate
+eval "$(atuin init zsh)"
