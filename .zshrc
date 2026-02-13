@@ -151,7 +151,7 @@ alias imgls="~/.iterm2/imgls"
 alias imgcat="~/.iterm2/imgcat"
 alias ybrew="yadm add Brewfile"
 alias ypom="yadm push origin master"
-alias gpom="git push origin master"
+alias gpom="git push origin main"
 alias gitmain="git checkout main && git pull origin main"
 alias python="/opt/homebrew/bin/python3"
 export PATH="/opt/homebrew/bin:$PATH"
@@ -223,3 +223,4 @@ compinit
 # for benchmarks
 alias date=gdate
 eval "$(atuin init zsh)"
+export PATH="$HOME/.local/bin:$PATH"
