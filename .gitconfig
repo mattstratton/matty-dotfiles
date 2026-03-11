@@ -1,7 +1,7 @@
 [user]
-	name = Matty Stratton
-	email = matty.stratton@aiven.io
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHqphcPZDXlSQUIWq0wxubAH0XDWpT6ZugomFQgN2RUC
+	name = Matt Stratton
+	email = matt.stratton@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIPNBf32CVOD+EwvqOrbWd28JJ7OnY5HyKb7421mAYkw
 [commit]
 	gpgsign = true
 [gpg]
@@ -12,8 +12,16 @@
 [credentialg]
 	helper = osxkeychain
 [core]
-	excludesfile = /Users/matty.stratton/.gitignore_global
+	excludesfile = /Users/mattstratton/.gitignore_global
 [pull]
 	rebase = false
 [init]
 	defaultBranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[url "git@github.com:"]
+	insteadOf = https://github.com/
