@@ -25,6 +25,8 @@ fi
 
 ZSH_DISABLE_COMPFIX="true"
 # FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+# Docker CLI completions (must be before oh-my-zsh compinit)
+fpath=(/Users/mattstratton/.docker/completions $fpath)
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/mattstratton/.oh-my-zsh
 
@@ -73,14 +75,14 @@ DEFAULT_USER="mattstratton"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump brew bundler colored-man-pages colorize gem git git-extras github git golang history history-substring-search oc macos pip python ruby vagrant vscode zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(autojump brew colored-man-pages colorize git git-extras github golang history history-substring-search macos vscode zsh-syntax-highlighting zsh-autosuggestions)
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/local/sbin:/sbin:~/bin:/usr/local/packer:/Library/Frameworks/Python.framework/Versions/3.4/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/local/sbin:/sbin:~/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -95,7 +97,7 @@ export BUNDLE_PATH=$GEM_HOME
 #   export EDITOR='mvim'
 # fi
 
-export EDITOR='vim'
+export EDITOR='code --wait'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -140,8 +142,9 @@ export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 export GITHUB_PERSONAL_ACCESS_TOKEN=$(keychain-environment-variable GITHUB_TOKEN);
 #export DIGITALOCEAN_TOKEN=$(keychain-environment-variable DIGITALOCEAN_TOKEN);
 
-alias ohmyzsh="vim ~/.oh-my-zsh"
-alias zshconfig="vim ~/.zshrc"
+alias vim="nvim"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
 alias c='clear'
 alias sz='source ~/.zshrc'
 alias prep='changelog prepare'
@@ -157,26 +160,25 @@ alias python="/opt/homebrew/bin/python3"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export GOPATH=~/go/
-export GOROOT="$(brew --prefix golang)/libexec"
+export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOPATH/bin
 export DODPATH=/Users/mattstratton/src/github.com/devopsdays/devopsdays-web/
-export PATH=$PATH:/Users/matty.stratton/bin
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 export PATH="/Users/mattstratton/.cargo/bin:$PATH"
-### Turbot build stuff
-export STEAMPIPE_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/steampipe-docs
-export TAILPIPE_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/tailpipe-docs
-export GUARDRAILS_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/guardrails-docs
-export PIPES_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/pipes-docs
-export POWERPIPE_DOCS_PATH=/Users/mattstratton/src/github.com/turbot/powerpipe-docs
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 eval "$(thefuck --alias)"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+## obsidian cli
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 # nvm
+
+# add jump forward and back keybindings
+
+# Make Alt+Left/Right move by word
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -196,6 +198,7 @@ fi
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # Later in your .zshrc - minimal prompt for agents
 if [[ "$AGENT_MODE" == "true" ]]; then
+  export EDITOR='nvim'
   PROMPT='%n@%m:%~%# '
   RPROMPT=''
   unsetopt CORRECT
@@ -215,12 +218,7 @@ if [[ "$AGENT_MODE" == "true" ]]; then
 else
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 fi
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/mattstratton/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
 # for benchmarks
-alias date=gdate
+alias gdate='gdate'  # use gdate explicitly instead of overriding date
 eval "$(atuin init zsh)"
 export PATH="$HOME/.local/bin:$PATH"
