@@ -120,7 +120,7 @@ require("lazy").setup({
   -- Telescope: fuzzy finder for everything
   {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    branch = "master",
     dependencies = {
       "nvim-lua/plenary.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },

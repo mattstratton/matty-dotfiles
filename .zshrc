@@ -12,16 +12,18 @@ fi
 # fi
 
 # Enable Powerlevel10k instant prompt only when not in agent mode
-if [[ "$AGENT_MODE" != "true" ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# Commented out in favor of starship
+# if [[ "$AGENT_MODE" != "true" ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
-# Set Oh My Zsh theme conditionally - disable for agents only
-if [[ "$AGENT_MODE" == "true" ]]; then
-  ZSH_THEME=""  # Disable Powerlevel10k for agents
-else
-  ZSH_THEME="powerlevel10k/powerlevel10k"
-fi
+# Set Oh My Zsh theme - disabled in favor of starship
+# if [[ "$AGENT_MODE" == "true" ]]; then
+#   ZSH_THEME=""  # Disable Powerlevel10k for agents
+# else
+#   ZSH_THEME="powerlevel10k/powerlevel10k"
+# fi
+ZSH_THEME=""
 
 ZSH_DISABLE_COMPFIX="true"
 # FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
@@ -97,6 +99,7 @@ alias ypom="yadm push origin master"
 alias gpom="git push origin main"
 alias gitmain="git checkout main && git pull origin main"
 alias python="/opt/homebrew/bin/python3"
+alias gh="GITHUB_TOKEN= command gh"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export GOPATH=~/go/
@@ -156,9 +159,11 @@ if [[ "$AGENT_MODE" == "true" ]]; then
   alias pip='pip --quiet'
   alias git='git -c advice.detachedHead=false'
 else
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+  # Commented out in favor of starship
+  # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 fi
 # for benchmarks
 alias gdate='gdate'  # use gdate explicitly instead of overriding date
 eval "$(atuin init zsh)"
 export PATH="$HOME/.local/bin:$PATH"
+eval "$(starship init zsh)"
