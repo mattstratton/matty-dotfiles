@@ -147,7 +147,7 @@ style = "bg:lavender"
 format = '[[  $time ](fg:crust bg:lavender)]($style)'
 
 [line_break]
-disabled = false
+disabled = true
 
 [character]
 disabled = false
