@@ -9,7 +9,14 @@ $directory\
 [](bg:yellow fg:peach)\
 $git_branch\
 $git_status\
-[](fg:yellow bg:green)\
+[](fg:yellow)\
+
+
+$line_break\
+$character"""
+
+right_format = """
+[](fg:green)\
 $c\
 $rust\
 $golang\
@@ -19,14 +26,13 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:green bg:sapphire)\
+[](fg:sapphire bg:green)\
+$docker_context\
 $conda\
-[](fg:sapphire bg:lavender)\
-$time\
-[ ](fg:lavender)\
+[](fg:lavender bg:sapphire)\
 $cmd_duration\
-$line_break\
-$character"""
+$time\
+[](fg:lavender)"""
 
 palette = 'catppuccin_mocha'
 
@@ -144,7 +150,7 @@ format = '[$symbol$environment ]($style)'
 ignore_base = false
 
 [time]
-disabled = true
+disabled = false
 time_format = "%R"
 style = "bg:lavender"
 format = '[[  $time ](fg:crust bg:lavender)]($style)'
@@ -163,7 +169,7 @@ vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 
 [cmd_duration]
 show_milliseconds = true
-format = " in $duration "
+format = '[[  $duration ](fg:crust bg:lavender)]($style)'
 style = "bg:lavender"
 disabled = false
 show_notifications = true
