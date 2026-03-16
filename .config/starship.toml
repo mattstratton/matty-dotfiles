@@ -73,7 +73,10 @@ truncation_symbol = "…/"
 "Downloads" = " "
 "Music" = "󰝚 "
 "Pictures" = " "
-"Developer" = "󰲋 "
+"src" =  "󰲋 "
+"github.com" = " "
+"Desktop" = " "
+"obsidian" = "󱓧 "
 
 [git_branch]
 symbol = ""
@@ -141,7 +144,7 @@ format = '[$symbol$environment ]($style)'
 ignore_base = false
 
 [time]
-disabled = false
+disabled = true
 time_format = "%R"
 style = "bg:lavender"
 format = '[[  $time ](fg:crust bg:lavender)]($style)'
