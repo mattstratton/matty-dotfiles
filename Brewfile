@@ -158,6 +158,7 @@ cask "timescale/tap/tiger-cli"
 #cask "todoist"
 cask "tower"
 cask "warp"
+cask "wispr-flow"
 cask "visual-studio-code"
 cask "zoom"
 mas "Fantastical", id: 975937182
