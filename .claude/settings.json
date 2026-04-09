@@ -1,0 +1,129 @@
+{
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4317",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "OTEL_LOG_TOOL_DETAILS": "1",
+    "OTEL_LOGS_EXPORT_INTERVAL": "5000",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_METRIC_EXPORT_INTERVAL": "10000",
+    "OTEL_METRICS_EXPORTER": "otlp"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(go:*)",
+      "Write(*)",
+      "Bash(ls:*)",
+      "Bash(git:*)",
+      "Update(*:*)",
+      "Bash(mv:*)",
+      "Bash(echo:*)",
+      "Bash(sed:*)",
+      "Bash(source:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(pkill:*)",
+      "Bash(touch:*)",
+      "Bash(grep:*)",
+      "Bash(deadcode:*)",
+      "Bash(sqlite3:*)",
+      "Bash(curl:*)",
+      "Bash(rg:*)",
+      "Bash(chmod:*)",
+      "Bash(lsof:*)",
+      "Bash(make:*)",
+      "Bash(PORT=:*)",
+      "Bash(find:*)",
+      "Bash(docker:*)",
+      "Bash(poetry:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Update(*)"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/post-tool-use.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/pre-tool-use.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/session-start.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "any-buddy apply --silent"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/stop.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "claude-code-wakatime@wakatime": true,
+    "context-mode@claude-context-mode": true,
+    "frontend-design@claude-code-plugins": true,
+    "pg@aiguide": true,
+    "security-guidance@claude-plugins-official": true,
+    "tigerdata-marketing-skills@tigerdata-marketing": true,
+    "matty-tiger-skills@skills-poc": true
+  },
+  "extraKnownMarketplaces": {
+    "tigerdata-marketing": {
+      "source": {
+        "source": "github",
+        "repo": "timescale/marketing-skills"
+      }
+    },
+    "skills-poc": {
+      "source": {
+        "source": "github",
+        "repo": "mattstratton/skills-poc"
+      }
+    }
+  },
+  "skipAutoPermissionPrompt": true
+}
