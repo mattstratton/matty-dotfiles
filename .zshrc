@@ -168,3 +168,10 @@ alias gdate='gdate'  # use gdate explicitly instead of overriding date
 eval "$(atuin init zsh)"
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/Users/mattstratton/.bun/_bun" ] && source "/Users/mattstratton/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

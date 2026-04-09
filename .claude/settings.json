@@ -75,15 +75,6 @@
             "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/session-start.sh"
           }
         ]
-      },
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "any-buddy apply --silent"
-          }
-        ]
       }
     ],
     "Stop": [
