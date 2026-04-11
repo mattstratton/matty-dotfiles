@@ -105,7 +105,7 @@ duration_hours=$((duration_ms / 3600000))
 duration_min=$(((duration_ms % 3600000) / 60000))
 
 # Get session cost (only show if > 0, for API users)
-cost_usd=$(echo "$input" | jq -r '.cost.total_cost_usd // 0')
+# cost_usd=$(echo "$input" | jq -r '.cost.total_cost_usd // 0')
 
 # Get context window data - prefer v2.1.6+ percentage fields, fallback to calculation
 total_tokens=$(echo "$input" | jq -r '.context_window.context_window_size // 200000')
