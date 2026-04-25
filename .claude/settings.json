@@ -41,10 +41,12 @@
       "Bash(poetry:*)",
       "Bash(python:*)",
       "Bash(python3:*)",
-      "Update(*)"
+      "Update(*)",
+      "mcp__claude_buddy__*"
     ],
     "deny": []
   },
+  "model": "sonnet",
   "hooks": {
     "PostToolUse": [
       {
@@ -86,6 +88,16 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/src/github.com/1270011/claude-buddy/hooks/name-react.sh"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
@@ -95,12 +107,12 @@
   },
   "enabledPlugins": {
     "claude-code-wakatime@wakatime": true,
-    "context-mode@claude-context-mode": true,
     "frontend-design@claude-code-plugins": true,
     "pg@aiguide": true,
     "security-guidance@claude-plugins-official": true,
     "tigerdata-marketing-skills@tigerdata-marketing": true,
-    "matty-tiger-skills@skills-poc": true
+    "matty-tiger-skills@skills-poc": true,
+    "warp@claude-code-warp": true
   },
   "extraKnownMarketplaces": {
     "tigerdata-marketing": {
@@ -114,7 +126,15 @@
         "source": "github",
         "repo": "mattstratton/skills-poc"
       }
+    },
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
     }
   },
+  "awaySummaryEnabled": false,
+  "editorMode": "normal",
   "skipAutoPermissionPrompt": true
 }

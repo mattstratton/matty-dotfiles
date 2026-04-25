@@ -175,3 +175,6 @@ eval "$(starship init zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# open claude code on a tiger-den issue in plan mode, in an issue-<n> worktree
+issue() { claude --permission-mode plan -w "issue-$1" "/implement issue #$1" }

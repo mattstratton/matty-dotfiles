@@ -75,6 +75,7 @@ style = "bg:peach fg:crust"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
+truncate_to_repo = true
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -94,6 +95,12 @@ format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
 [git_status]
 style = "bg:yellow"
 format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)'
+
+[git_metrics]
+added_style = "bold blue"
+deleted_style = "bold red"
+disabled = false
+format = '[[+$added]($added_style)/[-$deleted]($deleted_style) ]'
 
 [nodejs]
 symbol = ""
