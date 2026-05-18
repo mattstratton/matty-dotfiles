@@ -46,7 +46,6 @@
     ],
     "deny": []
   },
-  "model": "sonnet",
   "hooks": {
     "PostToolUse": [
       {
@@ -112,7 +111,9 @@
     "security-guidance@claude-plugins-official": true,
     "tigerdata-marketing-skills@tigerdata-marketing": true,
     "matty-tiger-skills@skills-poc": true,
-    "warp@claude-code-warp": true
+    "warp@claude-code-warp": true,
+    "vercel@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "tigerdata-marketing": {
@@ -134,7 +135,9 @@
       }
     }
   },
+  "effortLevel": "high",
   "awaySummaryEnabled": false,
+  "skipDangerousModePermissionPrompt": true,
   "editorMode": "normal",
   "skipAutoPermissionPrompt": true
 }
