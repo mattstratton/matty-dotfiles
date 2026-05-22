@@ -86,6 +86,10 @@ require("lazy").setup({
     config = function()
       require("catppuccin").setup({
         flavour = "mocha", -- dark theme: latte, frappe, macchiato, mocha
+        styles = {
+          comments = { "italic" },
+          conditionals = { "italic" },
+        },
       })
       vim.cmd.colorscheme("catppuccin")
     end,
