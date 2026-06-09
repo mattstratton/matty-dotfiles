@@ -89,6 +89,7 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias zshconfig="nvim ~/.zshrc"
 alias c='clear'
 alias sz='source ~/.zshrc'
+alias cpenv='cp ~/src/github.com/timescale/tiger-den/.env ./'
 alias prep='changelog prepare'
 alias -s rb=ruby
 alias -s log="less -MN"
@@ -178,3 +179,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # open claude code on a tiger-den issue in plan mode, in an issue-<n> worktree
 issue() { claude --permission-mode plan -w "issue-$1" "/implement issue #$1" }
+source ~/.config/herdr/tiger-den.zsh

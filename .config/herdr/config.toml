@@ -1,0 +1,21 @@
+onboarding = false
+
+[experimental]
+pane_history = false
+
+[keys]
+# Disarm the footgun: herdr-native worktree creation (prefix+shift+g) bypasses
+# .worktreeinclude (no .env*/CLAUDE.local.md copy). Use the `tw` shell helper
+# (which runs `claude -w`) instead.
+new_worktree = ""
+
+[ui]
+# See blocked/done agents across all workspaces at a glance, not just the focused one.
+agent_panel_scope = "all"
+
+[ui.toast]
+delivery = "system"
+
+[session]
+# claude integration is current (v5) → resume conversations, not just panes, after restart.
+resume_agents_on_restore = true
