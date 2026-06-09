@@ -1,18 +1,4 @@
 {
-  "awaySummaryEnabled": false,
-  "editorMode": "normal",
-  "effortLevel": "medium",
-  "enabledPlugins": {
-    "claude-code-wakatime@wakatime": true,
-    "frontend-design@claude-code-plugins": true,
-    "matty-tiger-skills@skills-poc": true,
-    "pg@aiguide": true,
-    "security-guidance@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "tigerdata-marketing-skills@tigerdata-marketing": true,
-    "vercel@claude-plugins-official": true,
-    "warp@claude-code-warp": true
-  },
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
     "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4317",
@@ -22,106 +8,6 @@
     "OTEL_LOG_TOOL_DETAILS": "1",
     "OTEL_METRICS_EXPORTER": "otlp",
     "OTEL_METRIC_EXPORT_INTERVAL": "10000"
-  },
-  "extraKnownMarketplaces": {
-    "claude-code-warp": {
-      "source": {
-        "repo": "warpdotdev/claude-code-warp",
-        "source": "github"
-      }
-    },
-    "skills-poc": {
-      "source": {
-        "repo": "mattstratton/skills-poc",
-        "source": "github"
-      }
-    },
-    "tigerdata-marketing": {
-      "source": {
-        "repo": "timescale/marketing-skills",
-        "source": "github"
-      }
-    }
-  },
-  "hooks": {
-    "PostToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/post-tool-use.sh",
-            "type": "command"
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/pre-tool-use.sh",
-            "type": "command"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "command": "rtk hook claude",
-            "type": "command"
-          }
-        ],
-        "matcher": "Bash"
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/session-start.sh",
-            "type": "command"
-          }
-        ],
-        "matcher": "compact"
-      },
-      {
-        "hooks": [
-          {
-            "command": "bash '/Users/mattstratton/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10,
-            "type": "command"
-          }
-        ],
-        "matcher": "*"
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/stop.sh",
-            "type": "command"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "command": "/Users/mattstratton/src/github.com/1270011/claude-buddy/hooks/name-react.sh",
-            "type": "command"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "command": "/Users/mattstratton/.claude/hooks/pr-clear-nudge.sh",
-            "type": "command"
-          }
-        ]
-      }
-    ]
   },
   "permissions": {
     "allow": [
@@ -160,11 +46,136 @@
     ],
     "deny": []
   },
-  "skipAutoPermissionPrompt": true,
-  "skipDangerousModePermissionPrompt": true,
+  "model": "sonnet",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/post-tool-use.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/pre-tool-use.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/session-start.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/mattstratton/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/.claude/hooks/tigerden-worktree-env.sh",
+            "timeout": 60
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/stop.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/src/github.com/1270011/claude-buddy/hooks/name-react.sh"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/.claude/hooks/pr-clear-nudge.sh"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
+    "type": "command",
     "command": "~/.claude/statusline.sh",
-    "padding": 0,
-    "type": "command"
-  }
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "claude-code-wakatime@wakatime": true,
+    "frontend-design@claude-code-plugins": true,
+    "matty-tiger-skills@skills-poc": true,
+    "pg@aiguide": true,
+    "security-guidance@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "tigerdata-marketing-skills@tigerdata-marketing": true,
+    "vercel@claude-plugins-official": true,
+    "warp@claude-code-warp": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    },
+    "skills-poc": {
+      "source": {
+        "source": "github",
+        "repo": "mattstratton/skills-poc"
+      }
+    },
+    "tigerdata-marketing": {
+      "source": {
+        "source": "github",
+        "repo": "timescale/marketing-skills"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "awaySummaryEnabled": false,
+  "skipDangerousModePermissionPrompt": true,
+  "editorMode": "normal",
+  "skipAutoPermissionPrompt": true
 }
