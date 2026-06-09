@@ -45,3 +45,5 @@ Temporary Items
 
 #gpg protection
 secring.*
+
+**/.claude/settings.local.json

@@ -108,7 +108,16 @@ duration_min=$(((duration_ms % 3600000) / 60000))
 cost_usd=$(echo "$input" | jq -r '.cost.total_cost_usd // 0')
 
 # Get context window data - prefer v2.1.6+ percentage fields, fallback to calculation
-total_tokens=$(echo "$input" | jq -r '.context_window.context_window_size // 200000')
+# Window size: trust the payload field; if absent, infer from the model name so a 1M
+# session doesn't silently divide by 200k (which produced bogus >100% readings).
+total_tokens=$(echo "$input" | jq -r '.context_window.context_window_size // empty')
+if [[ -z "$total_tokens" ]]; then
+    if [[ "$model" == *"1M"* || "$model" == *"1m"* ]]; then
+        total_tokens=1000000
+    else
+        total_tokens=200000
+    fi
+fi
 
 # Try new percentage fields first (Claude Code 2.1.6+)
 used_pct_raw=$(echo "$input" | jq -r '.context_window.used_percentage // null')
@@ -148,6 +157,15 @@ used_k=$(( used_tokens / 1000 ))
 total_k=$(( total_tokens / 1000 ))
 free_k=$(( free_tokens / 1000 ))
 
+# --- /clear game: zone color + escalating nudge based on context fill ---
+# The number that matters for the /clear-before-/pr habit is context %, not $.
+# Keep the bar green; get scolded as it fills. Clearing visibly resets it to green = the win.
+if   [[ "$usage_pct" -ge 85 ]]; then zone_color="31"; zone_msg=" \033[1;31m🧹 /clear before /pr!\033[0m"   # red: act now
+elif [[ "$usage_pct" -ge 70 ]]; then zone_color="33"; zone_msg=" \033[0;33m🧹 clear soon\033[0m"          # orange
+elif [[ "$usage_pct" -ge 50 ]]; then zone_color="33"; zone_msg=" \033[2;37mgetting chunky\033[0m"         # yellow
+else                                 zone_color="36"; zone_msg=" \033[2;32m🌱\033[0m"                     # green: fresh
+fi
+
 # Generate brick visualization (30 bricks for narrower display)
 total_bricks=30
 if [[ $total_tokens -gt 0 ]]; then
@@ -160,9 +178,9 @@ free_bricks=$((total_bricks - used_bricks))
 # Build brick line with single colour (cyan for used, dim white for free)
 brick_line="["
 
-# Used bricks (cyan)
+# Used bricks (zone color: green → yellow → red as context fills)
 for ((i=0; i<used_bricks; i++)); do
-    brick_line+="\033[0;36m■\033[0m"
+    brick_line+="\033[0;${zone_color}m■\033[0m"
 done
 
 # Free bricks (dim/gray hollow squares)
@@ -172,8 +190,8 @@ done
 
 brick_line+="]"
 
-# Compact stats: percentage | free | duration
-brick_line+=" \033[1m${usage_pct}%\033[0m"
+# Compact stats: percentage (zone-colored) | free | duration
+brick_line+=" \033[1;${zone_color}m${usage_pct}%\033[0m"
 brick_line+=" | \033[1;32m${free_k}k free\033[0m"
 brick_line+=" | ${duration_hours}h${duration_min}m"
 
@@ -189,6 +207,9 @@ else
         brick_line+=" | \033[0;33m\$${cost_usd}\033[0m"
     fi
 fi
+
+# Escalating /clear nudge (rightmost = call to action)
+brick_line+="$zone_msg"
 
 # Output all three lines
 echo -e "$line1"
