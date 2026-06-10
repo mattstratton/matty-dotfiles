@@ -9,10 +9,16 @@
 
 TIGERDEN_DIR="$HOME/src/github.com/timescale/tiger-den"
 
-# Resolve the tiger-den herdr workspace id (empty → falls back to current workspace).
+# Resolve the tiger-den herdr workspace id, creating it (+ anchor shell pane) if absent.
 _tigerden_ws() {
-  herdr workspace list 2>/dev/null \
-    | jq -r '.result.workspaces[]|select(.label=="tiger-den")|.workspace_id'
+  local ws
+  ws=$(herdr workspace list 2>/dev/null \
+    | jq -r '.result.workspaces[]|select(.label=="tiger-den")|.workspace_id')
+  if [[ -z "$ws" ]]; then
+    ws=$(herdr workspace create --cwd "$TIGERDEN_DIR" --label "tiger-den" --no-focus 2>/dev/null \
+      | jq -r '.result.workspace.workspace_id')
+  fi
+  echo "$ws"
 }
 
 # _tigerden_spawn <agent-name> <argv...>  → tracked pane in the tiger-den workspace.
