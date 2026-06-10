@@ -9,32 +9,45 @@
 
 TIGERDEN_DIR="$HOME/src/github.com/timescale/tiger-den"
 
-# Resolve the tiger-den herdr workspace id, creating it (+ anchor shell pane) if absent.
+# Resolve the tiger-den herdr workspace id, creating it (+ "control" tab) if absent.
 _tigerden_ws() {
   local ws
   ws=$(herdr workspace list 2>/dev/null \
     | jq -r '.result.workspaces[]|select(.label=="tiger-den")|.workspace_id')
   if [[ -z "$ws" ]]; then
-    ws=$(herdr workspace create --cwd "$TIGERDEN_DIR" --label "tiger-den" --no-focus 2>/dev/null \
-      | jq -r '.result.workspace.workspace_id')
+    local create_out
+    create_out=$(herdr workspace create --cwd "$TIGERDEN_DIR" --label "tiger-den" --no-focus 2>/dev/null)
+    ws=$(echo "$create_out" | jq -r '.result.workspace.workspace_id')
+    local control_tab
+    control_tab=$(echo "$create_out" | jq -r '.result.tab.tab_id')
+    [[ -n "$control_tab" ]] && herdr tab rename "$control_tab" "control" 2>/dev/null
   fi
   echo "$ws"
 }
 
-# _tigerden_spawn <agent-name> <argv...>  → tracked pane in the tiger-den workspace.
+# _tigerden_spawn <agent-name> <argv...>  → agent in its own named tab in the tiger-den workspace.
+# Creates a named tab, then runs the command in the tab's root pane (avoids the double-pane
+# issue caused by `agent start --tab` splitting into an already-populated tab).
 _tigerden_spawn() {
   local name="$1"; shift
   local ws; ws=$(_tigerden_ws)
-  # zsh does not word-split ${ws:+...}, so build an array to keep --workspace and
-  # its value as two separate argv tokens.
   local -a wsarg=()
   [[ -n "$ws" ]] && wsarg=(--workspace "$ws")
-  herdr agent start "$name" --cwd "$TIGERDEN_DIR" "${wsarg[@]}" -- "$@"
+  local tab_out
+  tab_out=$(herdr tab create "${wsarg[@]}" --cwd "$TIGERDEN_DIR" --label "$name" --no-focus 2>/dev/null)
+  local pane_id
+  pane_id=$(echo "$tab_out" | jq -r '.result.root_pane.pane_id')
+  herdr pane run "$pane_id" "$*"
 }
 
 tw() {
   local slug="${1:?usage: tw <slug>   # e.g. tw tden-1234}"
   _tigerden_spawn "$slug" claude -w "$slug"
+}
+
+twrelease() {
+  _tigerden_spawn "release" \
+    claude --model sonnet --permission-mode auto "/release"
 }
 
 twissue() {

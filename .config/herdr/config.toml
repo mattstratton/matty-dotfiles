@@ -13,6 +13,7 @@ new_worktree = ""
 # See blocked/done agents across all workspaces at a glance, not just the focused one.
 agent_panel_scope = "all"
 
+show_agent_labels_on_pane_borders = true
 [ui.toast]
 delivery = "system"
 
