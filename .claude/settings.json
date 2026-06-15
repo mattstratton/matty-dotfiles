@@ -42,7 +42,8 @@
       "Bash(python:*)",
       "Bash(python3:*)",
       "Update(*)",
-      "mcp__claude_buddy__*"
+      "mcp__claude_buddy__*",
+      "mcp__claude_ai_Linear__get_issue"
     ],
     "deny": []
   },
