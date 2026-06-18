@@ -26,8 +26,9 @@ _tigerden_ws() {
 }
 
 # _tigerden_spawn <agent-name> <argv...>  → agent in its own named tab in the tiger-den workspace.
-# Creates a named tab, then runs the command in the tab's root pane (avoids the double-pane
-# issue caused by `agent start --tab` splitting into an already-populated tab).
+# Creates a fresh tab, then sends `exec <cmd>` to the root pane's shell so claude replaces
+# the shell in-place (no split, no orphan pane). `exec` also means the pane closes cleanly
+# when claude exits rather than dropping back to a shell prompt.
 _tigerden_spawn() {
   local name="$1"; shift
   local ws; ws=$(_tigerden_ws)
@@ -37,7 +38,8 @@ _tigerden_spawn() {
   tab_out=$(herdr tab create "${wsarg[@]}" --cwd "$TIGERDEN_DIR" --label "$name" --no-focus 2>/dev/null)
   local pane_id
   pane_id=$(echo "$tab_out" | jq -r '.result.root_pane.pane_id')
-  herdr pane run "$pane_id" "$*"
+  herdr pane send-text "$pane_id" "exec $*"
+  herdr pane send-keys "$pane_id" Enter
 }
 
 tw() {

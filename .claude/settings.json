@@ -43,7 +43,9 @@
       "Bash(python3:*)",
       "Update(*)",
       "mcp__claude_buddy__*",
-      "mcp__claude_ai_Linear__get_issue"
+      "mcp__claude_ai_Linear__get_issue",
+      "mcp__me__me_memory_search",
+      "mcp__me-tigerden__me_memory_search"
     ],
     "deny": []
   },
