@@ -1,0 +1,68 @@
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/local/sbin:/sbin:$HOME/bin"
+
+export BUNDLE_PATH=$GEM_HOME
+export EDITOR='code --wait'
+
+source ~/keychain-environment-variables.sh
+
+export GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
+export CHANGELOG_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
+export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
+export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
+export GITHUB_PERSONAL_ACCESS_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
+
+alias vim="nvim"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias c='clear'
+alias sz='source ~/.zshrc'
+alias cpenv='cp ~/src/github.com/timescale/tiger-den/.env ./'
+alias prep='changelog prepare'
+alias -s rb=ruby
+alias -s log="less -MN"
+alias ypom="yadm push origin master"
+alias gpom="git push origin main"
+alias gitmain="git checkout main && git pull origin main"
+alias gitrelease="git checkout release && git pull origin release"
+alias gh="GITHUB_TOKEN= command gh"
+
+export GOPATH=~/go/
+export PATH=$PATH:$GOPATH/bin
+export DODPATH=$HOME/src/github.com/devopsdays/devopsdays-web/
+export PATH="$HOME/.cargo/bin:$PATH"
+
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
+
+if [[ "$AGENT_MODE" == "true" ]]; then
+  export EDITOR='nvim'
+  PROMPT='%n@%m:%~%# '
+  RPROMPT=''
+  unsetopt CORRECT
+  unsetopt CORRECT_ALL
+  setopt NO_BEEP
+  setopt NO_HIST_BEEP
+  setopt NO_LIST_BEEP
+  alias rm='rm -f'
+  alias cp='cp -f'
+  alias mv='mv -f'
+  alias npm='npm --no-fund --no-audit'
+  alias yarn='yarn --non-interactive'
+  alias pip='pip --quiet'
+  alias git='git -c advice.detachedHead=false'
+fi
+
+eval "$(atuin init zsh)"
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(starship init zsh)"
+
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+issue() { claude --permission-mode plan -w "issue-$1" "/implement issue #$1" }
+source ~/.config/herdr/tiger-den.zsh

@@ -1,0 +1,15 @@
+#!/bin/bash
+# Stub on Linux — macOS Keychain not available.
+# No-op functions so .zshrc_shared sources cleanly.
+
+function keychain-environment-variable () {
+    # Returns empty. Add secrets to ~/.secrets_local (not tracked by yadm).
+    :
+}
+
+function set-keychain-environment-variable () {
+    echo "On Linux, add secrets to ~/.secrets_local (not tracked by yadm)"
+}
+
+# Load machine-local secrets if present
+[[ -f "$HOME/.secrets_local" ]] && source "$HOME/.secrets_local"

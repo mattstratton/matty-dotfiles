@@ -1,0 +1,11 @@
+[user]
+	name = Matt Stratton
+	email = matt.stratton@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[url "git@github.com:"]
+	insteadOf = https://github.com/

@@ -1,0 +1,4 @@
+# Linux profile — nothing needed here (no Homebrew init)
+# Add distro-specific profile-time setup if needed.
+
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"

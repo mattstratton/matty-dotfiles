@@ -1,0 +1,27 @@
+# Agent detection - only activate minimal mode for actual agents
+if [[ -n "$npm_config_yes" ]] || [[ -n "$CI" ]] || [[ "$-" != *i* ]]; then
+  export AGENT_MODE=true
+else
+  export AGENT_MODE=false
+fi
+
+ZSH_THEME=""
+ZSH_DISABLE_COMPFIX="true"
+
+fpath=($HOME/.docker/completions $fpath)
+export ZSH=$HOME/.oh-my-zsh
+DEFAULT_USER="mattstratton"
+
+plugins=(autojump colored-man-pages colorize git git-extras docker docker-compose github golang history history-substring-search vscode zsh-syntax-highlighting zsh-autosuggestions)
+
+source $ZSH/oh-my-zsh.sh
+
+export GOROOT="/usr/local/go"
+export PATH="$GOROOT/bin:$PATH"
+alias python="python3"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+source ~/.zshrc_shared

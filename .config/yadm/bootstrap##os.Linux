@@ -1,0 +1,62 @@
+#!/bin/bash
+set -e
+
+echo "Running Linux bootstrap..."
+
+sudo apt-get update -qq
+sudo apt-get install -y \
+    git \
+    curl \
+    wget \
+    zsh \
+    build-essential \
+    jq \
+    fzf \
+    ripgrep \
+    tmux \
+    unzip \
+    neovim
+
+# Set zsh as default shell if not already
+if [ "$SHELL" != "$(which zsh)" ]; then
+    chsh -s "$(which zsh)"
+fi
+
+# Go (if not present)
+if ! command -v go &>/dev/null; then
+    GO_VERSION="1.22.4"
+    curl -fsSL "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" \
+        | sudo tar -C /usr/local -xz
+fi
+
+# GitHub CLI
+if ! command -v gh &>/dev/null; then
+    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+        | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
+        | sudo tee /etc/apt/sources.list.d/github-cli.list
+    sudo apt-get update -qq && sudo apt-get install -y gh
+fi
+
+# Oh My Zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
+# OMZ plugins
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+        "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+fi
+
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions \
+        "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+fi
+
+echo "Updating the yadm repo origin URL"
+yadm remote set-url origin "git@github.com:mattstratton/matty-dotfiles.git"
+
+yadm alt
+
+echo "Linux bootstrap complete."
