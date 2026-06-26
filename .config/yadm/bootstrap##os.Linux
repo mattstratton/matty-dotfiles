@@ -28,6 +28,13 @@ if ! command -v nvim &>/dev/null || [[ "$(nvim --version 2>/dev/null | head -1)"
     sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
 fi
 
+# tree-sitter CLI (needed by nvim-treesitter to compile parsers)
+if ! command -v tree-sitter &>/dev/null; then
+    curl -fsSL https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-x64.gz \
+        | gunzip -c | sudo tee /usr/local/bin/tree-sitter > /dev/null
+    sudo chmod +x /usr/local/bin/tree-sitter
+fi
+
 # Go (if not present)
 if ! command -v go &>/dev/null; then
     GO_VERSION="1.22.4"
