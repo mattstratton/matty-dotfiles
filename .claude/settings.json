@@ -51,12 +51,43 @@
   },
   "model": "sonnet",
   "hooks": {
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "async": false
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "hooks": [
           {
             "type": "command",
             "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/post-tool-use.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "ExitPlanMode",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "async": true
           }
         ]
       }
@@ -78,6 +109,37 @@
             "command": "rtk hook claude"
           }
         ]
+      },
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "ExitPlanMode",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "async": true
+          }
+        ]
       }
     ],
     "SessionStart": [
@@ -87,6 +149,16 @@
           {
             "type": "command",
             "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/session-start.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mattstratton/.claude/hooks/tigerden-worktree-env.sh",
+            "timeout": 60
           }
         ]
       },
@@ -101,12 +173,11 @@
         ]
       },
       {
-        "matcher": "startup",
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/mattstratton/.claude/hooks/tigerden-worktree-env.sh",
-            "timeout": 60
+            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "async": true
           }
         ]
       }
@@ -117,6 +188,15 @@
           {
             "type": "command",
             "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/stop.sh"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "async": true
           }
         ]
       }
@@ -135,6 +215,15 @@
           {
             "type": "command",
             "command": "/Users/mattstratton/.claude/hooks/pr-clear-nudge.sh"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "async": true
           }
         ]
       }
@@ -176,9 +265,11 @@
       }
     }
   },
-  "effortLevel": "medium",
+  "effortLevel": "high",
   "awaySummaryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
   "editorMode": "normal",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen"
 }

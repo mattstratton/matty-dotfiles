@@ -8,6 +8,10 @@ pane_history = false
 # .worktreeinclude (no .env*/CLAUDE.local.md copy). Use the `tw` shell helper
 # (which runs `claude -w`) instead.
 new_worktree = ""
+previous_agent = "prefix+up"
+next_agent = "prefix+down"
+previous_workspace = "prefix+left"
+next_workspace = "prefix+right"
 
 [ui]
 # See blocked/done agents across all workspaces at a glance, not just the focused one.

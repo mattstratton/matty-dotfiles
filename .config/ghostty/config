@@ -48,5 +48,6 @@ font-family-bold-italic = Monaspace Radon
 #font-family = Hack Nerd Font
 keybind = shift+enter=text:\x1b\r
 font-size = 20
-
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+
+#mouse-reporting = false
