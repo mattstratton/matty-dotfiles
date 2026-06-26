@@ -23,6 +23,7 @@ alias python="/opt/homebrew/bin/python3"
 alias imgls="$HOME/.iterm2/imgls"
 alias imgcat="$HOME/.iterm2/imgcat"
 alias ybrew="yadm add Brewfile"
+alias devstation="herdr --remote matty@34.225.33.252"
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 eval "$(thefuck --alias)"
