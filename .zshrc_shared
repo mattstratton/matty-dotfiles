@@ -10,6 +10,7 @@ export CHANGELOG_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
 export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
 export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
 export GITHUB_PERSONAL_ACCESS_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
+export BUTTONDOWN_API_KEY=$(keychain-environment-variable BUTTONDOWN_API_KEY)
 
 alias vim="nvim"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
