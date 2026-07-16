@@ -243,7 +243,9 @@
     "superpowers@claude-plugins-official": true,
     "tigerdata-marketing-skills@tigerdata-marketing": true,
     "vercel@claude-plugins-official": true,
-    "warp@claude-code-warp": true
+    "warp@claude-code-warp": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "mattpocock-skills@mattpocock": true
   },
   "extraKnownMarketplaces": {
     "claude-code-warp": {
@@ -263,9 +265,15 @@
         "source": "github",
         "repo": "timescale/marketing-skills"
       }
+    },
+    "mattpocock": {
+      "source": {
+        "source": "github",
+        "repo": "mattpocock/skills"
+      }
     }
   },
-  "effortLevel": "medium",
+  "effortLevel": "high",
   "awaySummaryEnabled": false,
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
