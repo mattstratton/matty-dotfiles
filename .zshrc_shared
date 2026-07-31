@@ -65,8 +65,8 @@ if [[ "$AGENT_MODE" == "true" ]]; then
   alias git='git -c advice.detachedHead=false'
 fi
 
+export PATH="$HOME/.local/bin:$HOME/.atuin/bin:$PATH"
 eval "$(atuin init zsh)"
-export PATH="$HOME/.local/bin:$PATH"
 eval "$(starship init zsh)"
 
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

@@ -1,3 +1,4 @@
+
 # Agent detection - only activate minimal mode for actual agents
 if [[ -n "$npm_config_yes" ]] || [[ -n "$CI" ]] || [[ "$-" != *i* ]]; then
   export AGENT_MODE=true
@@ -23,3 +24,7 @@ export PATH="$GOROOT/bin:$PATH"
 alias python="python3"
 
 source ~/.zshrc_shared
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
