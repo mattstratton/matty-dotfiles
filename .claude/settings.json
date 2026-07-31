@@ -51,179 +51,35 @@
   },
   "model": "sonnet",
   "hooks": {
-    "PermissionRequest": [
+    "PostToolUse": [
       {
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
-            "async": false
+            "command": "atuin hook claude-code"
           }
         ]
       }
     ],
-    "PostToolUse": [
+    "PostToolUseFailure": [
       {
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/post-tool-use.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "AskUserQuestion",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
-            "async": true
-          }
-        ]
-      },
-      {
-        "matcher": "ExitPlanMode",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
-            "async": true
+            "command": "atuin hook claude-code"
           }
         ]
       }
     ],
     "PreToolUse": [
       {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/pre-tool-use.sh"
-          }
-        ]
-      },
-      {
         "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "rtk hook claude"
-          }
-        ]
-      },
-      {
-        "matcher": "AskUserQuestion",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
-            "async": true
-          }
-        ]
-      },
-      {
-        "matcher": "ExitPlanMode",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
-            "async": true
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
-            "async": true
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "compact",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/session-start.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "startup",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/mattstratton/.claude/hooks/tigerden-worktree-env.sh",
-            "timeout": 60
-          }
-        ]
-      },
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/Users/mattstratton/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
-            "async": true
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/stop.sh"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
-            "async": true
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/mattstratton/src/github.com/1270011/claude-buddy/hooks/name-react.sh"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/mattstratton/.claude/hooks/pr-clear-nudge.sh"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
-            "async": true
+            "command": "atuin hook claude-code"
           }
         ]
       }
@@ -267,9 +123,9 @@
   },
   "effortLevel": "high",
   "awaySummaryEnabled": false,
+  "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "editorMode": "normal",
-  "skipAutoPermissionPrompt": true,
-  "tui": "fullscreen"
+  "skipAutoPermissionPrompt": true
 }

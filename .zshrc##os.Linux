@@ -1,3 +1,4 @@
+
 # Agent detection - only activate minimal mode for actual agents
 if [[ -n "$npm_config_yes" ]] || [[ -n "$CI" ]] || [[ "$-" != *i* ]]; then
   export AGENT_MODE=true
@@ -25,3 +26,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 source ~/.zshrc_shared
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
