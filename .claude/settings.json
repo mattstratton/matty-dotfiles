@@ -49,7 +49,7 @@
     ],
     "deny": []
   },
-  "model": "sonnet",
+  "model": "opus[1m]",
   "hooks": {
     "PermissionRequest": [
       {
