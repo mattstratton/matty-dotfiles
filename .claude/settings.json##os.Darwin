@@ -67,7 +67,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/post-tool-use.sh"
+            "command": "/Users/mattstratton/src/github.com/mattstratton/shepard-obs-stack/hooks/claude/post-tool-use.sh"
           }
         ]
       },
@@ -97,7 +97,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/pre-tool-use.sh"
+            "command": "/Users/mattstratton/src/github.com/mattstratton/shepard-obs-stack/hooks/claude/pre-tool-use.sh"
           }
         ]
       },
@@ -148,7 +148,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/session-start.sh"
+            "command": "/Users/mattstratton/src/github.com/mattstratton/shepard-obs-stack/hooks/claude/session-start.sh"
           }
         ]
       },
@@ -187,7 +187,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/mattstratton/src/github.com/shepard-system/shepard-obs-stack/hooks/claude/stop.sh"
+            "command": "/Users/mattstratton/src/github.com/mattstratton/shepard-obs-stack/hooks/claude/stop.sh"
           }
         ]
       },
@@ -275,7 +275,7 @@
   },
   "effortLevel": "high",
   "awaySummaryEnabled": false,
-  "tui": "fullscreen",
+  "tui": "default",
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "editorMode": "normal",
