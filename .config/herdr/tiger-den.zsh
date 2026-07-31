@@ -55,5 +55,5 @@ twrelease() {
 twissue() {
   local n="${1:?usage: twissue <issue-number>   # e.g. twissue 1234}"
   _tigerden_spawn "issue-$n" \
-    claude --permission-mode plan -w "issue-$n" "/implement issue #$n"
+    claude --permission-mode plan -w "issue-$n" "/implement-issue issue #$n"
 }

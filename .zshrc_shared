@@ -1,15 +1,24 @@
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/local/sbin:/sbin:$HOME/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/local/sbin:/sbin:$HOME/bin:$PATH"
 
 export BUNDLE_PATH=$GEM_HOME
 export EDITOR='code --wait'
 
+# secrets!
+
 source ~/keychain-environment-variables.sh
+
+# AWS configuration example, after doing:
+# $  set-keychain-environment-variable AWS_ACCESS_KEY_ID
+#       provide: "AKIAYOURACCESSKEY"
+# $  set-keychain-environment-variable AWS_SECRET_ACCESS_KEY
+#       provide: "j1/yoursupersecret/password"
 
 export GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
 export CHANGELOG_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
 export BOWIE_GITHUB_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
 export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
 export GITHUB_PERSONAL_ACCESS_TOKEN=$(keychain-environment-variable GITHUB_TOKEN)
+export BUTTONDOWN_API_KEY=$(keychain-environment-variable BUTTONDOWN_API_KEY)
 
 alias vim="nvim"
 alias ohmyzsh="nvim ~/.oh-my-zsh"

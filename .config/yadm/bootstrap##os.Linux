@@ -14,12 +14,25 @@ sudo apt-get install -y \
     fzf \
     ripgrep \
     tmux \
-    unzip \
-    neovim
+    unzip
 
 # Set zsh as default shell if not already
 if [ "$SHELL" != "$(which zsh)" ]; then
     chsh -s "$(which zsh)"
+fi
+
+# Neovim from GitHub releases (apt version is too old for telescope.nvim which needs 0.11+)
+if ! command -v nvim &>/dev/null || [[ "$(nvim --version 2>/dev/null | head -1)" < "NVIM v0.11" ]]; then
+    curl -fsSL https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz \
+        | sudo tar -C /opt -xz
+    sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
+fi
+
+# tree-sitter CLI (needed by nvim-treesitter to compile parsers)
+if ! command -v tree-sitter &>/dev/null; then
+    curl -fsSL https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-x64.gz \
+        | gunzip -c | sudo tee /usr/local/bin/tree-sitter > /dev/null
+    sudo chmod +x /usr/local/bin/tree-sitter
 fi
 
 # Go (if not present)
