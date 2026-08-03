@@ -7,6 +7,7 @@ fi
 
 ZSH_THEME=""
 ZSH_DISABLE_COMPFIX="true"
+DISABLE_UPDATE_PROMPT="true"
 
 fpath=($HOME/.docker/completions $fpath)
 export ZSH=$HOME/.oh-my-zsh
