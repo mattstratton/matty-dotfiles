@@ -57,3 +57,9 @@ twissue() {
   _tigerden_spawn "issue-$n" \
     claude --permission-mode plan -w "issue-$n" "/implement-issue issue #$n"
 }
+
+twdesign() {
+  local n="${1:?usage: twdesign <issue-number>   # e.g. twdesign 1234}"
+  _tigerden_spawn "issue-$n" \
+    claude --permission-mode plan --model opus -w "issue-$n" "/design-issue issue #$n"
+}

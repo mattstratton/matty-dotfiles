@@ -236,7 +236,8 @@
     "vercel@claude-plugins-official": true,
     "warp@claude-code-warp": true,
     "gopls-lsp@claude-plugins-official": true,
-    "mattpocock-skills@mattpocock": true
+    "mattpocock-skills@mattpocock": true,
+    "ponytail@ponytail": true
   },
   "extraKnownMarketplaces": {
     "claude-code-warp": {
@@ -261,6 +262,12 @@
       "source": {
         "source": "github",
         "repo": "mattpocock/skills"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
       }
     }
   },
