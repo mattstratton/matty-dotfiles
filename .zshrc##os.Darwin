@@ -13,8 +13,9 @@ fpath=($HOME/.docker/completions $fpath)
 export ZSH=$HOME/.oh-my-zsh
 DEFAULT_USER="mattstratton"
 
-plugins=(autojump brew colored-man-pages colorize git git-extras docker docker-compose github golang history history-substring-search macos nvm vscode zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(zoxide fzf direnv brew colored-man-pages git git-extras docker gh golang macos nvm uv bun 1password sudo extract copypath copyfile zsh-completions fzf-tab zsh-you-should-use zsh-autosuggestions zsh-syntax-highlighting)
 
+zstyle ':omz:plugins:nvm' lazy yes
 zstyle ':omz:plugins:nvm' autoload yes
 
 source $ZSH/oh-my-zsh.sh
