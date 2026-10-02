@@ -18,9 +18,10 @@ plugins=(zoxide fzf direnv brew colored-man-pages git git-extras docker gh golan
 zstyle ':omz:plugins:nvm' lazy yes
 zstyle ':omz:plugins:nvm' autoload yes
 
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+
 source $ZSH/oh-my-zsh.sh
 
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH=$PATH:$GOROOT/bin
 alias python="/opt/homebrew/bin/python3"
@@ -35,3 +36,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 
 source ~/.zshrc_shared
+
+# dedupe PATH; must come after the last PATH edit (export PATH=... bypasses -U on assignment)
+typeset -U path
