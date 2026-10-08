@@ -1,7 +1,7 @@
 # tiger-den herdr helpers — sourced from ~/.zshrc
 #
 #   tw <slug>        bare `claude -w <slug>` worktree pane (ad-hoc work)
-#   twissue <n>      `/implement issue #<n>` in plan mode, in an issue-<n> worktree
+#   twissue <n>...   `/implement-issue TDEN-<n>` in plan mode; several ids = one package worktree
 #
 # Both spawn a *status-tracked* pane in the tiger-den herdr workspace (vs `issue`,
 # which takes over the current terminal). Creation stays `claude -w`, so
@@ -38,7 +38,9 @@ _tigerden_spawn() {
   tab_out=$(herdr tab create "${wsarg[@]}" --cwd "$TIGERDEN_DIR" --label "$name" --no-focus 2>/dev/null)
   local pane_id
   pane_id=$(echo "$tab_out" | jq -r '.result.root_pane.pane_id')
-  herdr pane send-text "$pane_id" "exec $*"
+  # Quote each argv element ((@q)) before joining: plain `$*` flattens the argv, so a prompt like
+  # "/implement-issue TDEN-1" got re-split by the pane's shell and claude only saw "/implement-issue".
+  herdr pane send-text "$pane_id" "exec ${(j: :)${(@q)@}}"
   herdr pane send-keys "$pane_id" Enter
 }
 
@@ -52,14 +54,28 @@ twrelease() {
     claude --model sonnet --permission-mode auto "/release"
 }
 
+# One id  → worktree issue-TDEN-<n>.
+# Several → one "package" worktree (pkg-<n>-<n>) and ONE /implement-issue run over all of them.
+# Accepts "708", "TDEN-708" or "tden-708". Passes bare TDEN-N: "issue #N" is legacy-GitHub syntax
+# that /implement-issue treats as a pre-migration reference.
 twissue() {
-  local n="${1:?usage: twissue <issue-number>   # e.g. twissue 1234}"
-  _tigerden_spawn "issue-$n" \
-    claude --permission-mode plan -w "issue-$n" "/implement-issue issue #$n"
+  (( $# )) || { echo "usage: twissue <n> [<n> ...]   # e.g. twissue 706 678" >&2; return 1; }
+  local -a ids=()
+  local a
+  for a in "$@"; do ids+=("TDEN-${${(U)a}#TDEN-}"); done
+  local slug
+  if (( $# == 1 )); then
+    slug="issue-${ids[1]}"
+  else
+    slug="pkg-${(j:-:)${(@)ids#TDEN-}}"
+  fi
+  _tigerden_spawn "$slug" \
+    claude --permission-mode plan -w "$slug" "/implement-issue ${ids[*]}"
 }
 
 twdesign() {
-  local n="${1:?usage: twdesign <issue-number>   # e.g. twdesign 1234}"
+  local n="${1:?usage: twdesign <n>   # e.g. twdesign 1234}"
+  n="TDEN-${${(U)n}#TDEN-}"
   _tigerden_spawn "issue-$n" \
-    claude --permission-mode plan --model opus -w "issue-$n" "/design-issue issue #$n"
+    claude --permission-mode plan --model opus -w "issue-$n" "/design-issue $n"
 }

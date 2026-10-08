@@ -24,6 +24,7 @@ source $ZSH/oh-my-zsh.sh
 
 export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH=$PATH:$GOROOT/bin
+alias j="z"
 alias python="/opt/homebrew/bin/python3"
 alias imgls="$HOME/.iterm2/imgls"
 alias imgcat="$HOME/.iterm2/imgcat"

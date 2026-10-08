@@ -242,7 +242,8 @@
     "warp@claude-code-warp": true,
     "gopls-lsp@claude-plugins-official": true,
     "mattpocock-skills@mattpocock": true,
-    "ponytail@ponytail": true
+    "ponytail@ponytail": true,
+    "cc-plugin-you-should-know@builtin": true
   },
   "extraKnownMarketplaces": {
     "claude-code-warp": {
@@ -277,6 +278,17 @@
     }
   },
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "xhigh"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
   "awaySummaryEnabled": false,
   "tui": "default",
   "skipDangerousModePermissionPrompt": true,
