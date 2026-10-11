@@ -26,14 +26,20 @@ export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH=$PATH:$GOROOT/bin
 alias j="z"
 alias python="/opt/homebrew/bin/python3"
-alias imgls="$HOME/.iterm2/imgls"
-alias imgcat="$HOME/.iterm2/imgcat"
+alias imgcat="chafa"
+alias imgls="chafa -g"
+export PSQL_PAGER="pspg"
+# humans only: agents (incl. claude code, which reports AGENT_MODE=false) get plain ls/cat output
+if [[ "$AGENT_MODE" != "true" && -z "$CLAUDECODE" ]]; then
+  alias ls="eza --group-directories-first --icons=auto"
+  alias lt="eza --tree --git-ignore"
+  alias cat="bat --paging=never"
+fi
 alias ybrew="yadm add Brewfile"
 alias devstation="herdr --remote matty@34.225.33.252"
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 fuck() { unfunction fuck; eval "$(thefuck --alias)"; fuck "$@" }
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 
 source ~/.zshrc_shared

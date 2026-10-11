@@ -13,6 +13,7 @@
 	helper = osxkeychain
 [core]
 	excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RF
 [pull]
 	rebase = false
 [init]
@@ -25,3 +26,5 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
+[interactive]
+	diffFilter = diff-so-fancy --patch

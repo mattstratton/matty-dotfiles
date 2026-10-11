@@ -45,7 +45,7 @@
     ],
     "deny": []
   },
-  "model": "sonnet",
+  "model": "opus",
   "hooks": {
     "PermissionRequest": [
       {
@@ -239,19 +239,12 @@
     "superpowers@claude-plugins-official": true,
     "tigerdata-marketing-skills@tigerdata-marketing": true,
     "vercel@claude-plugins-official": true,
-    "warp@claude-code-warp": true,
     "gopls-lsp@claude-plugins-official": true,
     "mattpocock-skills@mattpocock": true,
     "ponytail@ponytail": true,
     "cc-plugin-you-should-know@builtin": true
   },
   "extraKnownMarketplaces": {
-    "claude-code-warp": {
-      "source": {
-        "source": "github",
-        "repo": "warpdotdev/claude-code-warp"
-      }
-    },
     "skills-poc": {
       "source": {
         "source": "github",
@@ -286,7 +279,7 @@
       "effortLevel": "high"
     },
     "claude-opus-5-5": {
-      "effortLevel": "high"
+      "effortLevel": "xhigh"
     }
   },
   "awaySummaryEnabled": false,

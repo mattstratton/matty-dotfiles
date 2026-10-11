@@ -15,17 +15,8 @@ if [ "$system_type" = "Darwin" ]; then
     brew bundle --file="$HOME/Brewfile"
   fi
 
-fi
-
-if [ "$system_type" = "Darwin" ]; then
-
-  # possibly add something here to ensure iTerm2 is installed using Homebrew
-  # cask like in the previous example
-
-  if [ -d "$HOME/.iterm2" ]; then
-    echo "Setting iTerm preference folder"
-    defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
-  fi
+  # Brewfile can't track gh extensions
+  gh extension install dlvhdr/gh-dash || echo "run 'gh auth login', then: gh extension install dlvhdr/gh-dash"
 
 fi
 
