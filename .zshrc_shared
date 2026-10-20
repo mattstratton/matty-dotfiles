@@ -85,3 +85,18 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 issue() { local n="TDEN-${${(U)1}#TDEN-}"; claude --permission-mode plan -w "issue-$n" "/implement-issue $n" }
 source ~/.config/herdr/tiger-den.zsh
 alias reherd='source ~/.config/herdr/tiger-den.zsh'
+
+# image conversion: svg via rsvg-convert (better fidelity), everything else via magick
+# topng file.svg [width_px]  (width only applies to svg); output lands next to the input
+topng() {
+  local in="$1" out="${1%.*}.png" w=()
+  [[ -n "$2" ]] && w=(-w "$2")
+  case "${in:l}" in
+    *.svg) rsvg-convert $w "$in" -o "$out" ;;
+    *)     magick "$in" "$out" ;;
+  esac && echo "→ $out"
+}
+# topng_all svg [width_px]  (every *.svg in cwd)
+topng_all() { for f in *.$1; do topng "$f" $2; done }
+# conv photo.png webp
+conv() { magick "$1" "${1%.*}.$2" && echo "→ ${1%.*}.$2" }

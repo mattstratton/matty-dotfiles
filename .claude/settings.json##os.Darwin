@@ -41,11 +41,12 @@
       "mcp__claude_buddy__*",
       "mcp__claude_ai_Linear__get_issue",
       "mcp__me__me_memory_search",
-      "mcp__me-tigerden__me_memory_search"
+      "mcp__me-tigerden__me_memory_search",
+      "Edit"
     ],
     "deny": []
   },
-  "model": "opus",
+  "model": "sonnet",
   "hooks": {
     "PermissionRequest": [
       {
@@ -276,7 +277,7 @@
       "effortLevel": "xhigh"
     },
     "claude-sonnet-5-5": {
-      "effortLevel": "high"
+      "effortLevel": "medium"
     },
     "claude-opus-5-5": {
       "effortLevel": "xhigh"
