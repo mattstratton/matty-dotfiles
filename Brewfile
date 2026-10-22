@@ -157,7 +157,7 @@ cask "ghostty"
 cask "logitech-presentation"
 cask "loopback"
 cask "microsoft-auto-update"
-cask "microsoft-edge"
+# cask "microsoft-edge"
 cask "microsoft-office"
 cask "microsoft-teams"
 # cask "miro"
@@ -195,21 +195,21 @@ mas "Numbers", id: 409203825
 mas "Omnivore", id: 1564031042
 mas "Pages", id: 409201541
 mas "Webcam Settings", id: 533696630
-mas "Trello", id: 1278508951
-mas "Parcel", id: 375589283
+# mas "Trello", id: 1278508951
+# mas "Parcel", id: 375589283
 mas "1Password for Safari", id: 1569813296
 mas "Actions For Obsidian", id: 1659667937
 mas "AdBlock Pro", id: 1018301773
 mas "DaftMusic", id: 6748985865
 mas "DaisyDisk", id: 411643860
 mas "Final Cut Pro", id: 424389933
-mas "Glider", id: 482536700
+# mas "Glider", id: 482536700
 mas "HP", id: 1474276998
 mas "Just Press Record", id: 1033342465
 mas "Obsidian Web Clipper", id: 6720708363
 mas "Patterns", id: 429449079
 mas "Teleprompter", id: 1533078079
-mas "Parcel Classic", id: 639968404
+# mas "Parcel Classic", id: 639968404
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.project-manager"
 vscode "arcanis.vscode-zipfs"
