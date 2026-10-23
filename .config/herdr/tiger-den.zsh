@@ -2,6 +2,7 @@
 #
 #   tw <slug>        bare `claude -w <slug>` worktree pane (ad-hoc work)
 #   twissue <n>...   `/implement-issue TDEN-<n>` in plan mode; several ids = one package worktree
+#   twreview [feat]  `/ux-review [feat]` on Opus in its own worktree (no feat = the skill asks)
 #
 # Both spawn a *status-tracked* pane in the tiger-den herdr workspace (vs `issue`,
 # which takes over the current terminal). Creation stays `claude -w`, so
@@ -78,4 +79,18 @@ twdesign() {
   n="TDEN-${${(U)n}#TDEN-}"
   _tigerden_spawn "issue-$n" \
     claude --permission-mode plan --model opus -w "issue-$n" "/design-issue $n"
+}
+
+# Feature is optional ("planned emails" is fine unquoted); without one, /ux-review asks in its intake
+# round. Auto mode, not plan: the review creates a disposable fork and drives Chrome from step 3 on.
+# No flag for Artifact: a deny in settings.local.json can't be lifted per session (denies merge across
+# scopes, verified TDEN-1076), so /ux-review asks you to toggle it at its publish step instead.
+twreview() {
+  setopt localoptions extendedglob
+  local feature="$*"
+  local slug=${(L)feature}
+  slug=${${slug//[^a-z0-9]##/-}%-}
+  slug="ux-${slug:-review-$(date +%m%d-%H%M)}"
+  _tigerden_spawn "$slug" \
+    claude --model opus --permission-mode auto -w "$slug" "/ux-review${feature:+ $feature}"
 }
