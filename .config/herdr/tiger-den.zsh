@@ -1,14 +1,42 @@
 # tiger-den herdr helpers — sourced from ~/.zshrc
 #
-#   tw <slug>        bare `claude -w <slug>` worktree pane (ad-hoc work)
-#   twissue <n>...   `/implement-issue TDEN-<n>` in plan mode; several ids = one package worktree
-#   twreview [feat]  `/ux-review [feat]` on Opus in its own worktree (no feat = the skill asks)
+#   tw <slug>         plain Claude in a new worktree `<slug>`, for ad-hoc work
+#   twissue <n>...    /implement-issue TDEN-<n> in plan mode; several ids = one package worktree
+#   twdesign <n>      /design-issue TDEN-<n> on Opus in plan mode (design doc before code)
+#   twreview [feat]   /ux-review [feat] on Opus in its own worktree; no feat = the skill asks
+#                     (the only launcher that keeps the Artifact tool, to publish the report)
+#   twrelease         /release on Sonnet in auto mode, in the main checkout (no worktree)
+#   twhelp            this list
+#   issue <n>         like twissue, but takes over THIS terminal, no new tab (~/.zshrc_shared)
+#   claude            inside tiger-den, adds the per-session Artifact deny (`command claude` skips it)
 #
-# Both spawn a *status-tracked* pane in the tiger-den herdr workspace (vs `issue`,
-# which takes over the current terminal). Creation stays `claude -w`, so
-# .worktreeinclude + session-init schema isolation still run. Verified vs herdr 0.6.8.
+# The tw* commands spawn a *status-tracked* tab in the tiger-den herdr workspace. Creation stays
+# `claude -w`, so .worktreeinclude + session-init schema isolation still run. Verified vs herdr 0.6.8.
+# twhelp prints the indented lines above, so keep that list current when adding a command.
 
 TIGERDEN_DIR="$HOME/src/github.com/timescale/tiger-den"
+_TIGERDEN_HELPERS="${(%):-%x}"   # this file's path, captured at source time for twhelp
+
+twhelp() {
+  print "tiger-den helpers (${_TIGERDEN_HELPERS/#$HOME/~}):"
+  sed -n 's/^#   /  /p' "$_TIGERDEN_HELPERS"
+}
+
+# Per-session context trim (TDEN-1076): deny Artifact (13.4K tokens a turn) in every tiger-den session
+# except /ux-review, the only thing that publishes one. It lives here, not in settings.local.json,
+# because a deny in a file can't be lifted for one session: denies merge across scopes (verified).
+TIGERDEN_LEAN=(--settings '{"permissions":{"deny":["Artifact"]}}')
+
+# Bare `claude` (and `issue`) inside tiger-den gets the trim too. Skipped for subcommands
+# (`claude plugin list`), when you pass your own --settings, and outside the repo.
+# `command claude` bypasses it. tw* below use `exec`, which skips functions, so they pass it explicitly.
+claude() {
+  if [[ $PWD == $TIGERDEN_DIR(|/*) && ( $# -eq 0 || $1 == -* || $1 == /* ) && -z ${@[(r)--settings*]} ]]; then
+    command claude "${TIGERDEN_LEAN[@]}" "$@"
+  else
+    command claude "$@"
+  fi
+}
 
 # Resolve the tiger-den herdr workspace id, creating it (+ "control" tab) if absent.
 _tigerden_ws() {
@@ -47,12 +75,12 @@ _tigerden_spawn() {
 
 tw() {
   local slug="${1:?usage: tw <slug>   # e.g. tw tden-1234}"
-  _tigerden_spawn "$slug" claude -w "$slug"
+  _tigerden_spawn "$slug" claude "${TIGERDEN_LEAN[@]}" -w "$slug"
 }
 
 twrelease() {
   _tigerden_spawn "release" \
-    claude --model sonnet --permission-mode auto "/release"
+    claude "${TIGERDEN_LEAN[@]}" --model sonnet --permission-mode auto "/release"
 }
 
 # One id  → worktree issue-TDEN-<n>.
@@ -71,26 +99,25 @@ twissue() {
     slug="pkg-${(j:-:)${(@)ids#TDEN-}}"
   fi
   _tigerden_spawn "$slug" \
-    claude --permission-mode plan -w "$slug" "/implement-issue ${ids[*]}"
+    claude "${TIGERDEN_LEAN[@]}" --permission-mode plan -w "$slug" "/implement-issue ${ids[*]}"
 }
 
 twdesign() {
   local n="${1:?usage: twdesign <n>   # e.g. twdesign 1234}"
   n="TDEN-${${(U)n}#TDEN-}"
   _tigerden_spawn "issue-$n" \
-    claude --permission-mode plan --model opus -w "issue-$n" "/design-issue $n"
+    claude "${TIGERDEN_LEAN[@]}" --permission-mode plan --model opus -w "issue-$n" "/design-issue $n"
 }
 
-# Feature is optional ("planned emails" is fine unquoted); without one, /ux-review asks in its intake
-# round. Auto mode, not plan: the review creates a disposable fork and drives Chrome from step 3 on.
-# No flag for Artifact: a deny in settings.local.json can't be lifted per session (denies merge across
-# scopes, verified TDEN-1076), so /ux-review asks you to toggle it at its publish step instead.
+# Feature is optional ("planned emails" is fine unquoted) and names the tab/worktree ux-planned-emails;
+# without one it's plain ux-review, and /ux-review asks in its intake round. Auto mode, not plan: the review creates a disposable fork and drives Chrome from step 3 on.
+# Deliberately no TIGERDEN_LEAN: the report is published with the Artifact tool.
 twreview() {
   setopt localoptions extendedglob
   local feature="$*"
   local slug=${(L)feature}
   slug=${${slug//[^a-z0-9]##/-}%-}
-  slug="ux-${slug:-review-$(date +%m%d-%H%M)}"
+  slug="ux-${slug:-review-${(L)$(( [##36] RANDOM ))}}"   # base36 suffix: a stale worktree can't collide
   _tigerden_spawn "$slug" \
     claude --model opus --permission-mode auto -w "$slug" "/ux-review${feature:+ $feature}"
 }
