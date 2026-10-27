@@ -14,6 +14,8 @@ previous_workspace = "prefix+left"
 next_workspace = "prefix+right"
 
 [ui]
+
+
 show_agent_labels_on_pane_borders = true
 [ui.toast]
 delivery = "system"
@@ -21,3 +23,5 @@ delivery = "system"
 [session]
 # claude integration is current (v5) → resume conversations, not just panes, after restart.
 resume_agents_on_restore = true
+
+

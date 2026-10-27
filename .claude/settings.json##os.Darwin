@@ -7,7 +7,8 @@
     "OTEL_LOGS_EXPORT_INTERVAL": "5000",
     "OTEL_LOG_TOOL_DETAILS": "1",
     "OTEL_METRICS_EXPORTER": "otlp",
-    "OTEL_METRIC_EXPORT_INTERVAL": "10000"
+    "OTEL_METRIC_EXPORT_INTERVAL": "10000",
+    "CLAUDE_CODE_PLUGIN_DIRS": "/Users/mattstratton/.claude/moshi-plugin"
   },
   "permissions": {
     "allow": [
@@ -53,7 +54,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "command": "'/Users/mattstratton/.local/bin/moshi-hook' claude-hook",
             "async": false
           }
         ]
@@ -61,19 +62,11 @@
     ],
     "PostToolUse": [
       {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/mattstratton/src/github.com/mattstratton/shepard-obs-stack/hooks/claude/post-tool-use.sh"
-          }
-        ]
-      },
-      {
         "matcher": "AskUserQuestion",
         "hooks": [
           {
             "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "command": "'/Users/mattstratton/.local/bin/moshi-hook' claude-hook",
             "async": true
           }
         ]
@@ -83,7 +76,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "command": "'/Users/mattstratton/.local/bin/moshi-hook' claude-hook",
             "async": true
           }
         ]
@@ -91,19 +84,11 @@
     ],
     "PreToolUse": [
       {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/mattstratton/src/github.com/mattstratton/shepard-obs-stack/hooks/claude/pre-tool-use.sh"
-          }
-        ]
-      },
-      {
         "matcher": "AskUserQuestion",
         "hooks": [
           {
             "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "command": "'/Users/mattstratton/.local/bin/moshi-hook' claude-hook",
             "async": true
           }
         ]
@@ -113,7 +98,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "command": "'/Users/mattstratton/.local/bin/moshi-hook' claude-hook",
             "async": true
           }
         ]
@@ -133,22 +118,13 @@
         "hooks": [
           {
             "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "command": "'/Users/mattstratton/.local/bin/moshi-hook' claude-hook",
             "async": true
           }
         ]
       }
     ],
     "SessionStart": [
-      {
-        "matcher": "compact",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/mattstratton/src/github.com/mattstratton/shepard-obs-stack/hooks/claude/session-start.sh"
-          }
-        ]
-      },
       {
         "matcher": "startup",
         "hooks": [
@@ -173,7 +149,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "command": "'/Users/mattstratton/.local/bin/moshi-hook' claude-hook",
             "async": true
           }
         ]
@@ -184,15 +160,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/mattstratton/src/github.com/mattstratton/shepard-obs-stack/hooks/claude/stop.sh"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "command": "'/Users/mattstratton/.local/bin/moshi-hook' claude-hook",
             "async": true
           }
         ]
@@ -219,10 +187,22 @@
         "hooks": [
           {
             "type": "command",
-            "command": "'/opt/homebrew/bin/moshi-hook' claude-hook",
+            "command": "'/Users/mattstratton/.local/bin/moshi-hook' claude-hook",
             "async": true
           }
         ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "async": true,
+            "command": "'/Users/mattstratton/.local/bin/moshi-hook' claude-hook",
+            "type": "command"
+          }
+        ],
+        "matcher": "permission_prompt"
       }
     ]
   },
@@ -240,7 +220,7 @@
     "superpowers@claude-plugins-official": true,
     "tigerdata-marketing-skills@tigerdata-marketing": true,
     "vercel@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": false,
     "mattpocock-skills@mattpocock": true,
     "ponytail@ponytail": true,
     "cc-plugin-you-should-know@builtin": true
@@ -284,7 +264,7 @@
     }
   },
   "awaySummaryEnabled": false,
-  "tui": "default",
+  "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "editorMode": "normal",

@@ -41,6 +41,8 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 fuck() { unfunction fuck; eval "$(thefuck --alias)"; fuck "$@" }
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+# psql for the doc-testing-tool; libpq is keg-only, so appended (never ahead of a real postgres)
+export PATH="$PATH:/opt/homebrew/opt/libpq/bin"
 
 source ~/.zshrc_shared
 

@@ -84,7 +84,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 issue() { local n="TDEN-${${(U)1}#TDEN-}"; claude --permission-mode plan -w "issue-$n" "/implement-issue $n" }
 source ~/.config/herdr/tiger-den.zsh
-alias reherd='source ~/.config/herdr/tiger-den.zsh'
+source ~/.config/herdr/tiger-academy.zsh
+alias reherd='source ~/.config/herdr/tiger-den.zsh; source ~/.config/herdr/tiger-academy.zsh'
 
 # image conversion: svg via rsvg-convert (better fidelity), everything else via magick
 # topng file.svg [width_px]  (width only applies to svg); output lands next to the input
