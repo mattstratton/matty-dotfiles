@@ -14,7 +14,7 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(go:*)",
-      "Write(*)",
+      "Write(//Users/mattstratton/src/**)",
       "Bash(ls:*)",
       "Bash(git:*)",
       "Update(*:*)",
@@ -195,14 +195,14 @@
     ],
     "Notification": [
       {
+        "matcher": "permission_prompt",
         "hooks": [
           {
-            "async": true,
+            "type": "command",
             "command": "'/Users/mattstratton/.local/bin/moshi-hook' claude-hook",
-            "type": "command"
+            "async": true
           }
-        ],
-        "matcher": "permission_prompt"
+        ]
       }
     ]
   },
